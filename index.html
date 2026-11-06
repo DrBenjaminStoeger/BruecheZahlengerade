@@ -387,6 +387,12 @@ dialog::backdrop{background:var(--shade)}
 .mini .zq{fill:var(--zq);stroke:var(--ink);stroke-width:2}
 .mini .zz{fill:var(--zz);stroke:var(--ink);stroke-width:2}
 .mini .zn{fill:var(--zn);stroke:var(--ink);stroke-width:2}
+.pvmini{border-collapse:collapse;margin-top:8px;font-size:22px;font-weight:800}
+.pvmini th,.pvmini td{width:48px;height:40px;text-align:center;border:1.5px solid var(--panel-border);position:relative}
+.pvmini th{font-size:16px;color:var(--ink-soft)}
+.pvmini .ce{border-right:3px solid var(--bad)}
+.pvmini td b{position:absolute;right:-6px;bottom:2px;color:var(--bad)}
+.pvmini td.on{background:var(--hl1)}
 .tv table{border-collapse:collapse;width:100%;font-size:15px;margin-top:8px}
 .tv th,.tv td{text-align:left;padding:6px 8px;border-bottom:1.5px solid var(--panel-border);vertical-align:top}
 .tv th{font-weight:900}
@@ -418,8 +424,8 @@ dialog::backdrop{background:var(--shade)}
 .mbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;padding:10px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--panel-border)}
 .mbar label{font-weight:800}
 .mbar input{min-height:46px;border:2px solid var(--panel-border);border-radius:12px;background:var(--panel);padding:0 12px;font-size:17px;width:min(240px,100%)}
-.topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px;align-items:start}
-@media (max-width:900px){.topics{grid-template-columns:1fr}}
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px;align-items:start}
+@media (max-width:700px){.topics{grid-template-columns:1fr}}
 .tcol{background:var(--panel);border:2px solid var(--ink);border-radius:18px;box-shadow:0 5px 0 var(--edge);padding:14px;display:grid;gap:8px}
 .tcol-head{display:flex;align-items:center;gap:10px}
 .tcol-head .tn{width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--blue-ink);display:grid;place-items:center;font-weight:900;flex:none}
@@ -482,12 +488,7 @@ dialog::backdrop{background:var(--shade)}
 
 /* ---------- Bruch dazwischen: Punkt ---------- */
 .mini .ptok{fill:var(--blue)} .mini .ptbad{fill:var(--bad)}
-
-/* ---------- Heftübung ---------- */
-.heftbox{margin-top:18px;padding:16px 18px;border-radius:16px;background:var(--panel);border:2px solid var(--ink);box-shadow:0 5px 0 var(--edge)}
-.heftbox h2{font-size:22px;font-weight:900}
-.heftbox p{line-height:1.8;margin-top:4px}
-.heftbox .sol{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--ok-bg);border:2px solid var(--ok)}
+.mini .sg{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
 
 /* ---------- Code ---------- */
 .pinbox{max-width:360px}
@@ -499,6 +500,109 @@ dialog::backdrop{background:var(--shade)}
 .pinpad button{height:60px;border-radius:12px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);font-size:24px;font-weight:800;cursor:pointer;box-shadow:0 3px 0 var(--edge)}
 .pinpad .fn{font-size:15px}
 #pin{width:min(400px,94vw)}
+
+/* ---------- kompaktes Menü, vier Themen nebeneinander ---------- */
+.app:has(> #home:not([hidden])){max-width:1240px}
+.mhead{grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:2px 20px}
+.mhead h1{font-size:clamp(34px,5vw,46px)}
+.mhead .tagline{font-size:clamp(15px,1.8vw,17px);margin-top:4px}
+.mhead .hero-line{max-height:104px}
+@media (max-width:760px){.mhead{grid-template-columns:1fr}.mhead .hero-line{max-height:84px;justify-self:start}}
+.mbar{margin-top:6px;padding:8px 0}
+.mbar input{min-height:42px}
+#home .resume{margin-top:10px;padding:8px 14px}
+#home .resume strong{display:inline;font-size:16px;margin-right:8px}
+.topics{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:1000px){.topics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:580px){.topics{grid-template-columns:1fr}}
+.tcol{padding:10px;gap:6px;border-radius:16px}
+.tcol-head{gap:8px;min-height:44px}
+.tcol-head .tn{width:28px;height:28px;font-size:15px}
+.tcol-head h2{font-size:16.5px}
+.tprog{gap:8px;font-size:13px;margin-bottom:2px}
+.pbar{height:8px}
+.lrow{grid-template-columns:28px minmax(0,1fr) auto;gap:8px;min-height:48px;padding:6px 8px;border-radius:11px}
+.lrow .ln{width:28px;height:28px;font-size:14px}
+.lrow .lt{font-size:15px;line-height:1.2;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;min-width:0}
+#home .resume .btn{min-height:42px}
+.mbar{padding:6px 0}
+@media (max-width:1100px){.lrow .lt{font-size:14px}.lrow{gap:6px;padding:6px 6px}.lrow .lb{padding:2px 5px}.mlegend{font-size:12.5px}.tcol-head h2{font-size:15.5px}}
+.lrow .lb{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:999px;font-size:13px;font-weight:900;border:2px solid var(--panel-border);background:var(--panel);color:var(--ink);white-space:nowrap}
+.lrow .lb svg{width:13px;height:13px}
+.lrow .lb.gold{background:var(--sun);border-color:var(--ink);color:var(--sun-ink)}
+.lrow .lb.silber{background:var(--silver);border-color:var(--ink);color:var(--medal-ink)}
+.lrow .lb.bronze{background:var(--bronze);border-color:var(--ink);color:var(--medal-ink)}
+.lrow .lb.ok{border-color:var(--ok);color:var(--ok);background:var(--paper)}
+.lrow .rec-tag{display:none}
+.lrow.rec{box-shadow:0 0 0 3px var(--blue)}
+.mlegend{margin-top:12px;font-size:13.5px;gap:4px 16px;max-width:none}
+
+/* ---------- Dezimalbrüche ---------- */
+.num.dec{font-variant-numeric:lining-nums tabular-nums;letter-spacing:.01em}
+.card .num.dec{font-size:1.08em}
+.zstage .lab.zl{font-size:18px}
+.zstage .lab.zs{font-size:15px;fill:var(--ink-soft)}
+.zstage .lab.zx{font-size:14px;fill:var(--blue)}
+.zstage .axis.thin{stroke-width:2}
+.zstage .tick.thin{stroke-width:1.6}
+.zstage .tick.fine{stroke:var(--ink-soft);stroke-width:1;opacity:.55}
+.zstage .zsel{fill:var(--hl1)}
+.zstage .ztrap{fill:var(--hl2);opacity:.8}
+.zstage svg line,.zstage svg text,.zstage svg path,.zstage svg polygon{pointer-events:none}
+.zstage .zseg{cursor:pointer;stroke:transparent;stroke-width:2}
+.zstage .zseg.a{fill:var(--hl2)} .zstage .zseg.b{fill:var(--ax2)}
+.zstage .zseg:hover{stroke:var(--blue)}
+.zstage .zseg.bad{fill:var(--bad-bg);stroke:var(--bad)}
+.pvtbox,.digbox,.oddbox,.mcbox,.ziffbox{margin-top:12px;padding:16px 18px;border-radius:16px;background:var(--panel);border:2px solid var(--ink);box-shadow:0 5px 0 var(--edge);-webkit-user-select:none;user-select:none}
+.pvtbox{overflow-x:auto}
+.pvt{--cw:clamp(42px,8.5vw,62px);display:grid;gap:8px;width:max-content}
+.pvr{display:flex;align-items:center;gap:12px}
+.pvg{position:relative;display:grid;grid-template-columns:repeat(var(--n),var(--cw));height:62px;border:2px solid var(--ink);border-radius:10px;background:var(--paper)}
+.pvr.head .pvg{height:46px;border-color:transparent;background:transparent}
+.pvg::after{content:"";position:absolute;top:-6px;bottom:-6px;left:calc(var(--ic) * var(--cw) - 2px);width:4px;border-radius:2px;background:var(--bad);pointer-events:none;z-index:3}
+.pvr.head .pvg::after{display:none}
+.pvc{border-right:1.5px solid var(--panel-border);display:grid;place-items:center;font-size:30px;font-weight:800}
+.pvc:last-child{border-right:0}
+.pvc i{font-style:normal;color:var(--ink-soft);opacity:.5}
+.pvc.on{background:var(--hl1)} .pvc.bad{background:var(--bad-bg)}
+.pvh{height:44px;border-radius:10px;border:2px solid var(--panel-border);background:var(--panel);color:var(--ink);font-size:20px;font-weight:900;cursor:pointer;margin:0 3px;padding:0}
+.pvh.on{background:var(--sun);color:var(--sun-ink);border-color:var(--ink)} .pvh.bad{background:var(--bad-bg);border-color:var(--bad)}
+.pvb{position:absolute;top:4px;bottom:4px;left:calc(var(--off) * var(--cw));display:flex;cursor:grab;touch-action:none;transition:left .15s ease;border-radius:8px;background:var(--card);box-shadow:0 0 0 2.5px var(--blue),0 3px 0 var(--edge);z-index:2}
+.pvb.dragging{transition:none;cursor:grabbing;box-shadow:0 0 0 3px var(--blue),0 10px 16px var(--edge)}
+.pvb.fixed{cursor:default;box-shadow:none;background:transparent}
+.pvd{position:relative;width:var(--cw);display:grid;place-items:center;font-size:30px;font-weight:900;color:var(--card-ink)}
+.pvb.fixed .pvd{color:var(--ink)}
+.pvk{position:absolute;right:-6px;bottom:-1px;font-size:34px;color:var(--bad);line-height:1;font-weight:900}
+.pvctl{display:flex;gap:6px;min-width:104px}
+.pvctl .btn{min-width:48px;padding:0}
+.pvleg{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-size:14px;color:var(--ink-soft)}
+.pvleg b{color:var(--ink)} .pvleg .red{color:var(--bad)}
+.dig-st{flex-wrap:wrap}
+.dbox{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:max(20px,.8em);height:max(24px,1.08em);margin:0 .06em;border:max(2px,.08em) dashed var(--blue);border-radius:max(4px,.16em);background:var(--hl2);color:var(--blue);line-height:1;vertical-align:-.16em}
+.dbox::before{content:"?";font-size:max(14px,.72em);font-weight:900}
+.digq{margin-top:14px;font-weight:800}
+.digpick{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.digb{width:56px;height:56px;border-radius:12px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);font-size:26px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 var(--edge);padding:0}
+.digb.on{background:var(--sun);color:var(--sun-ink)}
+.digb.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--ink)} .digb.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ink)}
+.digb:disabled{cursor:default}
+.osign{font-size:28px;font-weight:900}
+.ochip.odd{cursor:pointer;touch-action:manipulation;min-width:auto;padding:0 12px}
+.ochip.odd.on{background:var(--sun);color:var(--sun-ink)}
+.ochip.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ink)} .ochip.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--ink)}
+.oddfix{margin-top:14px;font-size:20px;line-height:1.6}
+.mcq{font-size:20px;font-weight:800;line-height:1.45;max-width:64ch}
+.mcopts{display:grid;gap:10px;margin-top:12px}
+.mcopt{text-align:left;min-height:56px;padding:10px 14px;border-radius:12px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-size:17px;font-weight:700;cursor:pointer;line-height:1.4}
+.mcopt.ok{background:var(--ok-bg);border-color:var(--ok)} .mcopt.bad{background:var(--bad-bg);border-color:var(--bad);text-decoration:line-through}
+.mcopt:disabled{cursor:default}
+.ziffbox .chain{margin-top:12px;gap:6px}
+.zslot{min-width:62px;font-size:32px;font-weight:900}
+.zslot.filled{border-style:solid;border-color:var(--ink);background:var(--card);color:var(--card-ink)}
+.zslot.filled.comma{color:var(--bad)} .zslot.comma,.zchip.comma{color:var(--bad)}
+.zchip{min-width:62px;font-size:32px;font-weight:900}
+.calc-note{width:100%;font-size:15px;color:var(--ink-soft);font-weight:700}
+.numpad .wide{grid-column:span 2;font-size:13px}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -513,7 +617,7 @@ dialog::backdrop{background:var(--shade)}
     <header class="mhead">
       <div>
         <h1>Punktlandung</h1>
-        <p class="tagline">Brüche auf der Zahlengeraden einordnen, vergleichen und nach links erweitern</p>
+        <p class="tagline">Brüche auf der Zahlengeraden einordnen, vergleichen, nach links erweitern und Dezimalbrüche vergleichen</p>
       </div>
       <svg class="hero-line" viewBox="0 0 600 176" role="img" aria-label="Zahlengerade von minus 1 bis 2 in Vierteln. Die Karte minus 1/2 sitzt links von 0, die Karte 7/4 rechts von 1.">
         <rect x="40" y="113" width="170" height="26" rx="4" fill="var(--ax1)"/>
@@ -547,8 +651,8 @@ dialog::backdrop{background:var(--shade)}
       <button type="button" class="btn quiet small" id="homeTeacher">Lehrkraft</button>
     </div>
     <div class="resume" id="resume" hidden></div>
-    <div class="topics" id="topics"></div>
-    <p class="mlegend"><span><span class="sw"></span>Grün = geschafft (ab 8 von 15 Sternen, bei der Sicherung: erledigt).</span><span>Pro Runde 5 Aufgaben, je bis zu 3 Sterne. Tipps kosten keine Sterne. Bronze ab 8, Silber ab 12, Gold bei 15 Sternen.</span><span>Dein Fortschritt bleibt auf diesem Gerät gespeichert.</span></p>
+    <div class="topics" id="topics" lang="de"></div>
+    <p class="mlegend"><span><span class="sw"></span>Grün = geschafft (ab 8 von 15 Sternen)</span><span>Bronze ab 8, Silber ab 12, Gold bei 15 Sternen</span><span>Tipps kosten keine Sterne</span><span>Der Fortschritt bleibt auf diesem Gerät gespeichert.</span></p>
   </section>
 
   <!-- ======================= Übung ======================= -->
@@ -578,6 +682,10 @@ dialog::backdrop{background:var(--shade)}
       <div class="snap" id="snap" hidden></div>
       <div id="flags"></div>
     </div>
+    <div class="stage zstage" id="zstage" hidden>
+      <svg id="zsvg" aria-hidden="true"></svg>
+      <div id="zflags"></div>
+    </div>
     <div class="legend" id="legend" hidden></div>
     <div class="venn" id="venn" hidden>
       <div class="zlab"><b>ℚ</b>rationale Zahlen</div>
@@ -597,6 +705,11 @@ dialog::backdrop{background:var(--shade)}
       <p class="divcap" id="divCap"></p>
     </div>
 
+    <div class="pvtbox" id="pvtBox" hidden></div>
+    <div class="mcbox" id="mcBox" hidden></div>
+    <div class="digbox" id="digBox" hidden></div>
+    <div class="oddbox" id="oddBox" hidden></div>
+    <div class="ziffbox" id="ziffBox" hidden></div>
     <div class="cmp" id="cmp" hidden>
       <div class="chips" id="chips" hidden></div>
       <div class="cmp-row" id="cmpRow"></div>
@@ -630,6 +743,7 @@ dialog::backdrop{background:var(--shade)}
   </section>
 
   <section id="summary" class="summary" hidden></section>
+
 </div>
 
 <dialog id="book" aria-labelledby="bookTitle">
@@ -641,6 +755,7 @@ dialog::backdrop{background:var(--shade)}
         <button type="button" class="btn quiet" data-tab="Z" aria-pressed="true">Zahlengerade</button>
         <button type="button" class="btn quiet" data-tab="V" aria-pressed="false">Vergleichen</button>
         <button type="button" class="btn quiet" data-tab="R" aria-pressed="false">Rationale Zahlen</button>
+        <button type="button" class="btn quiet" data-tab="D" aria-pressed="false">Dezimalbrüche</button>
       </div>
     </div>
     <div id="bookBody"></div>
@@ -696,6 +811,7 @@ const telSg = d => d === 2 ? 'Halbes' : tel(d);
 /* Zahlen: {num, den, mx}; num trägt das Vorzeichen */
 function P(s){
   s = String(s).trim().replace('−', '-');
+  { const m = s.match(/^(-?)(\d+),(\d+)$/); if (m){ const den = 10 ** m[3].length, n = +m[2] * den + +m[3]; return {num:m[1] ? -n : n, den, mx:false, frac:false, dec:true, ds:(m[1] ? '−' : '') + m[2] + ',' + m[3]}; } }
   const neg = s[0] === '-'; if (neg) s = s.slice(1);
   let n, d = 1, mx = false, frac = false; const m = s.match(/^(\d+)\s+(\d+)\/(\d+)$/);
   if (m){ d = +m[3]; n = +m[1] * d + +m[2]; mx = true; }
@@ -711,13 +827,14 @@ const minDiv = cs => cs.map(redDen).reduce(lcm, 1);
 function cmpOf(a,b){ const d = a.num * b.den - b.num * a.den; return d < 0 ? '<' : d > 0 ? '>' : '='; }
 const flip = s => s === '<' ? '>' : s === '>' ? '<' : '=';
 const signH = s => s === '<' ? '&lt;' : s === '>' ? '&gt;' : s === '=' ? '=' : '?';
-const absF = f => ({num: Math.abs(f.num), den: f.den, mx: f.mx});
+const absF = f => ({num: Math.abs(f.num), den: f.den, mx: f.mx, dec: f.dec, ds: f.ds ? f.ds.replace('−', '') : f.ds});
 
 /* Darstellung */
 const frH = (n,d) => `<span class="fr" role="img" aria-label="${n}/${d}"><span aria-hidden="true">${n}</span><span aria-hidden="true">${d}</span></span>`;
 const frIn = (n,d) => `<span class="fr" aria-hidden="true"><span>${n}</span><span>${d}</span></span>`;
 function plain(f){
   const neg = f.num < 0, N = Math.abs(f.num), s = neg ? 'minus ' : '';
+  if (f.dec) return s + f.ds.replace('−', '');
   if (f.den === 1 && !f.frac) return s + N;
   if (f.mx && N > f.den && N % f.den) return s + Math.floor(N / f.den) + ' und ' + (N % f.den) + '/' + f.den;
   return s + N + '/' + f.den;
@@ -725,12 +842,14 @@ function plain(f){
 function numH(f){
   const neg = f.num < 0, N = Math.abs(f.num), sg = neg ? '<span class="sg" aria-hidden="true">−</span>' : '';
   const lab = `role="img" aria-label="${plain(f)}"`;
+  if (f.dec) return `<span class="num dec" ${lab}>${sg}<span aria-hidden="true">${f.ds.replace('−', '')}</span></span>`;
   if (f.den === 1 && !f.frac) return `<span class="num int" ${lab}>${sg}<span aria-hidden="true">${N}</span></span>`;
   if (f.mx && N > f.den && N % f.den) return `<span class="num" ${lab}>${sg}<span class="w" aria-hidden="true">${Math.floor(N / f.den)}</span>${frIn(N % f.den, f.den)}</span>`;
   return `<span class="num" ${lab}>${sg}${frIn(N, f.den)}</span>`;
 }
 const nh = s => numH(P(s));
-const mt = s => s.replace(/\[([−-]?\d+(?: \d+\/\d+|\/\d+)?)\]/g, (_, x) => nh(x));
+const BOX = '<span class="dbox" role="img" aria-label="Kästchen"></span>';
+const mt = s => s.replace(/☐/g, BOX).replace(/\[([−-]?\d+(?:,\d+| \d+\/\d+|\/\d+)?)\]/g, (_, x) => nh(x));
 const intLab = v => v < 0 ? '−' + (-v) : String(v);
 const star = on => `<svg class="star ${on ? 'on' : 'off'}" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>`;
 const stars = n => [0,1,2].map(i => star(i < n)).join('');
@@ -773,31 +892,23 @@ const TOPICS = [
         ['0,2','7/6','11/6',':cmp'],['0,1','2/3','1/3',':cmp'],['0,2','9/5','6/5',':cmp'],['0,1','7/9','5/9',':cmp'],['0,1','3/8','7/8','5/8',':max'],['0,1','4/6','1/6','5/6',':max']].map(lineT),
       sym:[{k:'sym',a:'17/24',b:'13/24'},{k:'sym',a:'29/40',b:'31/40'},{k:'sym',a:'11/15',b:'14/15'},{k:'sym',a:'43/50',b:'37/50'},{k:'sym',a:'9/16',b:'13/16'},{k:'sym',a:'25/12',b:'19/12'}],
       end:[{k:'calc',t:'fill',a:'5/11',b:'9/11'},{k:'calc',t:'fill',a:'3/7',b:'6/7'},{k:'calc',t:'fill',a:'7/13',b:'11/13'},{k:'calc',t:'fill',a:'12/25',b:'16/25'},
-        {k:'order',c:['5/12','11/12','1/12','7/12']},{k:'order',c:['13/20','3/20','17/20','9/20']},{k:'order',c:['4/9','8/9','2/9','7/9']}]},
-     heft:{task:'1. Ordne der Größe nach und schreibe eine Ungleichungskette: [5/12], [11/12], [1/12], [7/12], [12/12].|2. Setze <, > oder = ein und begründe mit dem Merksatz: a) [13/20] ☐ [17/20]   b) [9/8] ☐ [7/8]   c) [4/4] ☐ [5/5]|3. Finde drei Brüche mit dem Nenner 15, die zwischen [4/15] und [9/15] liegen.',
-       sol:'1. [1/12] < [5/12] < [7/12] < [11/12] < [12/12]|2. a) [13/20] < [17/20]   b) [9/8] > [7/8]   c) [4/4] = [5/5], beide sind 1. Gleicher Nenner: Der größere Zähler gibt den größeren Bruch.|3. Zum Beispiel [5/15], [6/15] und [7/15] (auch [8/15] passt).'}},
+        {k:'order',c:['5/12','11/12','1/12','7/12']},{k:'order',c:['13/20','3/20','17/20','9/20']},{k:'order',c:['4/9','8/9','2/9','7/9']}]}},
     {name:'Gleicher Zähler', desc:'Gleich viele Teile: Die Größe der Teile entscheidet.', seq:['double','double','double','sym','gz'], pools:{
       double:[['3/5','3/4'],['1/3','1/4'],['2/5','2/3'],['3/8','3/4'],['4/7','4/5'],['2/7','2/9'],['5/6','5/8'],['1/6','1/2'],['3/10','3/7'],['2/3','2/9'],['1/5','1/8'],['0,2','5/4','5/3']].map(doubleT),
       sym:[{k:'sym',a:'5/13',b:'5/9'},{k:'sym',a:'11/20',b:'11/18'},{k:'sym',a:'7/12',b:'7/15'},{k:'sym',a:'3/10',b:'3/11'},{k:'sym',a:'9/16',b:'9/14'},
         {k:'calc',t:'fillden',a:'4/9',rel:'>'},{k:'calc',t:'fillden',a:'5/8',rel:'<'},{k:'calc',t:'fillden',a:'7/12',rel:'>'}],
-      gz:[{k:'calc',t:'gz',a:'2/5',b:'3/7'},{k:'calc',t:'gz',a:'3/8',b:'2/5'},{k:'calc',t:'gz',a:'4/9',b:'6/13'},{k:'calc',t:'gz',a:'2/7',b:'3/11'},{k:'calc',t:'gz',a:'3/10',b:'2/7'},{k:'calc',t:'gz',a:'4/11',b:'6/17'}]},
-     heft:{task:'1. Ordne der Größe nach: [3/4], [3/10], [3/5], [3/8].|2. Zeichne zwei gleich lange Strecken (12 cm) und begründe mit der Zeichnung: [2/3] > [2/5].|3. Ergänze jeweils einen passenden Nenner: a) [5/7] < 5/☐   b) 7/☐ > [7/12]|4. Bringe auf denselben Zähler und vergleiche: [2/5] und [3/8].',
-       sol:'1. [3/10] < [3/8] < [3/5] < [3/4]|2. Beide Male werden 2 Teile genommen. Drittel (4 cm) sind länger als Fünftel (2,4 cm), also [2/3] > [2/5].|3. a) Jeder Nenner kleiner als 7, z. B. [5/6]   b) Jeder Nenner kleiner als 12, z. B. [7/10]|4. [2/5] = [6/15] und [3/8] = [6/16]. Gleicher Zähler: Der kleinere Nenner gibt den größeren Bruch, also [2/5] > [3/8].'}},
+      gz:[{k:'calc',t:'gz',a:'2/5',b:'3/7'},{k:'calc',t:'gz',a:'3/8',b:'2/5'},{k:'calc',t:'gz',a:'4/9',b:'6/13'},{k:'calc',t:'gz',a:'2/7',b:'3/11'},{k:'calc',t:'gz',a:'3/10',b:'2/7'},{k:'calc',t:'gz',a:'4/11',b:'6/17'}]}},
     {name:'Verschiedene Nenner', desc:'Hauptnenner festlegen, gleichnamig machen, vergleichen.', seq:['line','line','line','hn','hn'], pools:{
       line:[['0,1','2/3','3/6',':cmp'],['0,1','3/4','5/8',':cmp'],['0,1','2/3','4/6',':cmp'],['0,1','1/2','3/5',':cmp'],['0,1','5/6','3/4',':cmp'],['0,1','3/4','2/3',':cmp'],
         ['0,1','5/8','2/3',':cmp'],['0,1','4/5','7/10',':cmp'],['0,1','1/2','4/8',':cmp'],['0,2','5/4','7/6',':cmp'],['0,2','3/2','4/3',':cmp'],
         ['0,1','4/5','3/4','5/8','7/10',':max'],['0,1','1/2','2/3','3/4',':max'],['0,1','5/6','7/8','3/4',':max']].map(lineT),
       hn:[{k:'calc',t:'hn',a:'5/6',b:'7/9'},{k:'calc',t:'hn',a:'7/12',b:'5/8'},{k:'calc',t:'hn',a:'11/15',b:'7/10'},{k:'calc',t:'hn',a:'3/8',b:'5/12'},
-        {k:'calc',t:'hn',a:'9/14',b:'2/3'},{k:'calc',t:'hn',a:'7/18',b:'5/12'},{k:'calc',t:'hn',a:'4/9',b:'5/12'},{k:'calc',t:'hn',a:'13/20',b:'5/8'}]},
-     heft:{task:'Bestimme jeweils den Hauptnenner, mache gleichnamig und vergleiche.|Schreibe so: [3/4] = [9/12], [5/6] = [10/12], also [3/4] < [5/6].|a) [2/3] und [5/8]   b) [7/10] und [3/4]   c) [5/6] und [7/9]   d) [7/12] und [11/18]',
-       sol:'a) Hauptnenner 24: [2/3] = [16/24], [5/8] = [15/24], also [2/3] > [5/8]|b) Hauptnenner 20: [7/10] = [14/20], [3/4] = [15/20], also [7/10] < [3/4]|c) Hauptnenner 18: [5/6] = [15/18], [7/9] = [14/18], also [5/6] > [7/9]|d) Hauptnenner 36: [7/12] = [21/36], [11/18] = [22/36], also [7/12] < [11/18]'}},
+        {k:'calc',t:'hn',a:'9/14',b:'2/3'},{k:'calc',t:'hn',a:'7/18',b:'5/12'},{k:'calc',t:'hn',a:'4/9',b:'5/12'},{k:'calc',t:'hn',a:'13/20',b:'5/8'}]}},
     {name:'Strategie-Profi', desc:'Geschickt vergleichen, Brüche dazwischen finden.', seq:['strat','strat','between','strat','order'], pools:{
       strat:[{k:'strat',a:'4/9',b:'3/5'},{k:'strat',a:'8/7',b:'11/12'},{k:'strat',a:'4/5',b:'6/7'},{k:'strat',a:'2/5',b:'2/7'},{k:'strat',a:'5/12',b:'7/12'},{k:'strat',a:'3/8',b:'5/9'},
         {k:'strat',a:'5/6',b:'6/5'},{k:'strat',a:'9/10',b:'8/9'},{k:'strat',a:'3/4',b:'5/8'},{k:'strat',a:'29/6',b:'26/5'},{k:'strat',a:'7/8',b:'11/12'},{k:'strat',a:'4/7',b:'3/8'},{k:'strat',a:'5/8',b:'3/5'},{k:'strat',a:'7/12',b:'5/9'}],
       between:[{k:'between',a:'1/4',b:'1/2'},{k:'between',a:'1/2',b:'1'},{k:'between',a:'2/7',b:'4/7'},{k:'between',a:'3/5',b:'4/5'},{k:'between',a:'1/3',b:'1/2'},{k:'between',a:'2/3',b:'3/4'},{k:'between',a:'1/5',b:'1/4'}],
-      order:[{k:'order',c:['4/9','3/5','1/2']},{k:'order',c:['6/7','4/5','9/10']},{k:'order',c:['11/12','8/7','3/4']},{k:'order',c:['2/5','2/7','2/3']},{k:'order',c:['5/8','3/8','5/6']}]},
-     heft:{task:'Vergleiche möglichst geschickt und schreibe die Strategie dazu.|a) [4/9] und [5/8]   b) [13/12] und [9/10]   c) [6/7] und [7/8]   d) [5/11] und [5/13]|e) Finde drei Brüche zwischen [2/5] und [3/5]. Erkläre, wie du vorgehst.',
-       sol:'a) Vergleich mit ½: [4/9] < ½ < [5/8]|b) Vergleich mit 1: [9/10] < 1 < [13/12]|c) Was fehlt zum Ganzen? Bei [6/7] fehlt [1/7], bei [7/8] nur [1/8]. Also [6/7] < [7/8]|d) Gleicher Zähler: [5/11] > [5/13]|e) Erweitern mit 4: [2/5] = [8/20] und [3/5] = [12/20]. Dazwischen liegen [9/20], [10/20] und [11/20].'}}
+      order:[{k:'order',c:['4/9','3/5','1/2']},{k:'order',c:['6/7','4/5','9/10']},{k:'order',c:['11/12','8/7','3/4']},{k:'order',c:['2/5','2/7','2/3']},{k:'order',c:['5/8','3/8','5/6']}]}}
    ],
    sich:[
     {k:'cloze', title:'Lückentext: Merksätze', text:'Die Zahl ist größer, die auf der Zahlengeraden weiter {rechts} liegt.|Gleicher Nenner: Der Bruch mit {größerem} Zähler ist größer, z. B. [3/8] < [5/8].|Gleicher Zähler: Der Bruch mit {kleinerem} Nenner ist größer, z. B. [3/5] < [3/4].|Verschiedene Nenner: {Erweitern} auf den {Hauptnenner}, z. B. [2/3] = [4/6] > [3/6].',
@@ -830,6 +941,53 @@ const TOPICS = [
     {k:'puzzle', title:'Begründungspuzzle', claim:'Begründe: Jede natürliche Zahl ist auch eine rationale Zahl.', pieces:['Eine natürliche Zahl wie 3 kann man als Bruch schreiben: 3 = [3/1].','Rationale Zahlen sind alle Zahlen, die man als Bruch aus ganzen Zahlen schreiben kann (Nenner nicht 0).','Das klappt bei jeder natürlichen Zahl: Man schreibt sie über den Nenner 1.','Also ist jede natürliche Zahl eine rationale Zahl: ℕ ⊂ ℤ ⊂ ℚ.'],
      extra:[{t:'3 ist keine rationale Zahl, weil sie keinen Bruchstrich hat.', why:'Ob eine Zahl rational ist, hängt nicht von der Schreibweise ab: 3 = [3/1] = [6/2].'}],
      hints:['Beginne mit einem Beispiel.','Ein Satz verwechselt Zahl und Schreibweise.','Ende mit „Also …“.']}
+   ]},
+ { id:'D', short:'Dezimalbrüche', name:'Dezimalbrüche vergleichen', desc:'Komma unter Komma und von links vergleichen, mit der Lupe an der Zahlengeraden genauer hinsehen, typische Denkfehler aufdecken und Brüche mit Dezimalbrüchen vergleichen.',
+   levels:[
+    {name:'Stellen\u00adwert\u00adtafel', desc:'Komma unter Komma, dann von links vergleichen.', seq:['pvt','pvt','pvt','sym','digits'], pools:{
+      pvt:[['0,238','0,24'],['3,09','3,1'],['12,5','12,49'],['0,7','0,65'],['4,21','4,371'],['0,305','0,35'],['2,6','2,73'],['1,7','1,65'],['0,4','0,399'],['5,08','5,2'],['0,062','0,06'],['13,8','13,44'],['44,129','44,62']].map(c => ({k:'pvt', c})),
+      sym:[['0,375','0,25'],['0,9','0,12'],['2,3','2,0004'],['7,8','7,80'],['3,10','3,01'],['9,09','9,9'],['6,78','6,729'],['0,2','0,02'],['1,25','1,185'],['4,21','4,371']].map(([a, b]) => ({k:'sym', a, b})),
+      digits:[{l:'7,3#', rel:'<', r:'7,348'},{l:'0,34#', rel:'<', r:'0,342'},{l:'0,9#', rel:'>', r:'0,95'},{l:'0,8#', rel:'>', r:'0,8'},{l:'2,#1', rel:'<', r:'2,3'},{l:'0,1#', rel:'>', r:'0,1'},{l:'5,#7', rel:'>', r:'5,46'}].map(o => Object.assign({k:'digits'}, o))}},
+    {name:'Lupe an der Zahlengeraden', desc:'Zehnfach vergrößern, bis jede Zahl auf einem Strich liegt.', seq:['z1','z2','zp','dbet','dmid'], pools:{
+      z1:[{c:['0,3','0,29']},{c:['0,7','0,65']},{c:['1,7','1,65']},{c:['−0,9','−0,85']},{c:['0,5','0,45']},{c:['2,4','2,38']}].map(o => Object.assign({k:'zoom', then:'cmp'}, o)),
+      z2:[{c:['0,238','0,24']},{c:['0,03','0,029']},{c:['−7,382','−7,38']},{c:['2,143','2,148'], d0:0},{c:['0,6','0,605']},{c:['−0,3','−0,295']}].map(o => Object.assign({k:'zoom', then:'cmp'}, o)),
+      zp:[{c:['0,5','0,49','0,495'], then:'max'},{c:['0,4','0,39','0,395'], then:'min'},{c:['0,6','0,61','0,605'], then:'max'},{c:['−0,2','−0,25','−0,21'], then:'min'},{c:['1,3','1,25','1,28'], then:'max'}].map(o => Object.assign({k:'zoom'}, o)),
+      dbet:[['0,24','0,25'],['0,41','0,42'],['0,61','0,62'],['1,9','2'],['−0,5','−0,4'],['3,99','4'],['0,001','0,002'],['0,7','0,71']].map(([a, b]) => ({k:'calc', t:'dbet', a, b})),
+      dmid:[['0,5','0,8'],['0,01','0,012'],['−0,41','−0,4'],['1,5','1,6'],['2,4','2,5'],['0,3','0,32'],['−1,5','3,8']].map(([a, b]) => ({k:'calc', t:'dmid', a, b}))}},
+    {name:'Fehler-Detektive', desc:'Typische Denkfehler finden und erklären.', seq:['mc','odd','order','digits','ziff'], pools:{
+      mc:[
+       {q:'Max sagt: „0,9 ist kleiner als 0,12.“ Was hat sich Max wohl gedacht?', a:'0,9', b:'0,12', fix:'0,9 hat 9 Zehntel, 0,12 nur 1 Zehntel.',
+        o:[{t:'Er hat die Ziffern hinter dem Komma wie natürliche Zahlen verglichen: 9 < 12.', ok:true},{t:'Er denkt: Je mehr Stellen hinter dem Komma, desto kleiner die Zahl.', why:'Dann hätte er gesagt, 0,12 sei kleiner. Das stimmt sogar.'},{t:'Er hat beide Zahlen auf der Zahlengeraden eingetragen.', why:'Auf der Zahlengeraden liegt 0,9 weiter rechts als 0,12. Dann wäre ihm der Fehler aufgefallen.'}]},
+       {q:'Lena sagt: „0,375 ist kleiner als 0,25, denn Tausendstel sind kleiner als Hundertstel.“ Was hat sich Lena gedacht?', a:'0,375', b:'0,25', fix:'Es kommt nicht nur auf die Art der Stelle an, sondern auch auf die Anzahl: 0,375 hat 3 Zehntel, 0,25 nur 2 Zehntel.',
+        o:[{t:'Sie denkt: Je mehr Stellen hinter dem Komma, desto kleiner die Zahl.', ok:true},{t:'Sie hat 375 und 25 wie natürliche Zahlen verglichen.', why:'Dann hätte sie 0,375 als größere Zahl gewählt, denn 375 > 25.'},{t:'Sie hat Komma unter Komma geschrieben und von links verglichen.', why:'Dann hätte sie an der Zehntelstelle 3 > 2 gesehen.'}]},
+       {q:'Tim ordnet so: 0,03 < 0,009 < 0,029. Was hat sich Tim wohl gedacht?', a:'0,03', b:'0,009', fix:'0,03 hat 3 Hundertstel, 0,009 hat 0 Hundertstel.',
+        o:[{t:'Er liest die Ziffern hinter dem Komma als natürliche Zahlen: 3 < 9 < 29.', ok:true},{t:'Er denkt: Viele Nullen hinter dem Komma machen eine Zahl klein.', why:'Dann hätte er 0,009 als kleinste Zahl gewählt.'},{t:'Er hat stellenweise von links verglichen.', why:'Dann wäre 0,009 die kleinste Zahl, denn sie hat 0 Hundertstel.'}]},
+       {q:'Pia sagt: „2,3 ist kleiner als 2,0004, denn 2,0004 hat mehr Ziffern.“ Was hat sich Pia gedacht?', a:'2,3', b:'2,0004', fix:'Die Anzahl der Ziffern entscheidet bei Dezimalbrüchen nicht. 2,3 hat 3 Zehntel, 2,0004 hat 0 Zehntel.',
+        o:[{t:'Sie beachtet das Komma nicht und denkt wie bei natürlichen Zahlen: mehr Ziffern = größere Zahl.', ok:true},{t:'Sie hat die Zehntel verglichen.', why:'Dann hätte sie 3 Zehntel > 0 Zehntel gesehen.'},{t:'Sie denkt: Mehr Stellen hinter dem Komma bedeuten eine kleinere Zahl.', why:'Dann hätte sie 2,0004 als kleinere Zahl gewählt.'}]},
+       {q:'Karlheinz ordnet so: −3,04 > −2,89 > −0,6. Was hat er sich wohl gedacht?', a:'−3,04', b:'−2,89', fix:'Bei negativen Zahlen ist die Zahl mit dem kleineren Betrag größer. −2,89 liegt näher an der 0.',
+        o:[{t:'Er hat nur die Beträge verglichen und die Minuszeichen nicht beachtet.', ok:true},{t:'Er hat die Ziffern hinter dem Komma verglichen: 04, 89 und 6.', why:'Dann wäre −2,89 vorne, denn 89 ist die größte Zahl.'},{t:'Er weiß: Weiter links liegt die kleinere Zahl.', why:'−3,04 liegt am weitesten links und ist deshalb die kleinste Zahl, nicht die größte.'}]},
+       {q:'Ben sagt: „0,5 ist kleiner als 0,50, denn 5 < 50.“ Was hat sich Ben gedacht?', a:'0,5', b:'0,50', fix:'Eine Null am Ende ändert den Wert nicht: 0,5 = 0,50, beides sind 5 Zehntel.',
+        o:[{t:'Er liest die Ziffern hinter dem Komma als natürliche Zahlen.', ok:true},{t:'Er denkt: Mehr Stellen hinter dem Komma bedeuten eine kleinere Zahl.', why:'Dann hätte er 0,50 als kleinere Zahl gewählt.'},{t:'Er hat 0,5 und 0,50 auf der Zahlengeraden verglichen.', why:'Beide Zahlen liegen auf demselben Punkt.'}]}
+      ].map(o => Object.assign({k:'mc'}, o)),
+      odd:[{c:['0,425','0,4025','0,4052','0,405'], rel:'>'},{c:['3,091','3,919','3,9019','3,0919'], rel:'>'},{c:['6,308','6,038','6,803','6,830'], rel:'<'},{c:['0,7','0,69','0,71','0,8'], rel:'<'},{c:['−0,6','−0,65','−0,5','−0,45'], rel:'<'},{c:['1,05','1,5','1,15','1,55'], rel:'<'}].map(o => Object.assign({k:'odd'}, o)),
+      order:[['0,03','0,009','0,029'],['0,3','0,13','0,42','0,135'],['−4,789','−4,798','−2,8','2,701'],['1,25','1,185','1,42','1,3'],['0,5','0,45','0,405','0,055'],['−0,57','−0,75','−0,5','−0,705']].map(c => ({k:'order', c})),
+      digits:[{l:'−2,6#4', rel:'<', r:'−2,621'},{l:'−0,#38', rel:'<', r:'−0,33'},{l:'−13,367', rel:'<', r:'−13,3#'},{l:'−1,304', rel:'<', r:'−1,30#'},{l:'0,#5', rel:'<', r:'0,405'},{l:'1,#2', rel:'>', r:'1,49'}].map(o => Object.assign({k:'digits'}, o)),
+      ziff:[{d:['3','7','8','0'], goal:'min'},{d:['3','7','8','0'], goal:'between', lo:'0,8', hi:'1'},{d:['5','0','2','9'], goal:'min'},{d:['4','1','6','0'], goal:'gt1'},{d:['2','5','0','9'], goal:'near', target:'5'},{d:['6','3','0','1'], goal:'between', lo:'0,6', hi:'0,7'}].map(o => Object.assign({k:'ziff'}, o))}},
+    {name:'Bruch oder Dezimalbruch', desc:'Erst in dieselbe Schreibweise bringen, dann vergleichen.', seq:['dez','dez','dezn','sym','order'], pools:{
+      dez:[['3/4','0,8'],['7/20','0,4'],['1 3/5','1,56'],['21/5','4,3'],['3/8','0,4'],['2/5','0,38'],['13/25','0,5'],['9/20','0,405'],['7 13/50','7,26'],['3/4','0,75']].map(([a, b]) => ({k:'calc', t:'dez', a, b})),
+      dezn:[['−2/50','−0,04'],['−7/4','−1,7'],['−1/8','−0,13'],['−3/5','−0,65'],['−1 1/4','−1,3']].map(([a, b]) => ({k:'calc', t:'dez', a, b})),
+      sym:[['4/5','0,79'],['0,6','5/8'],['1 1/4','1,3'],['−3/4','−0,7'],['0,35','7/20'],['2/3','0,6'],['0,125','1/8'],['11/20','0,505']].map(([a, b]) => ({k:'sym', a, b})),
+      order:[['3/4','0,7','4/5','0,78'],['0,5','2/5','0,45','11/20'],['−1/2','−0,45','−3/5','−0,55'],['1/4','0,2','0,3','7/20'],['1 1/2','1,45','1,6','1 3/8']].map(c => ({k:'order', c}))}}
+   ],
+   sich:[
+    {k:'cloze', title:'Lückentext: Dezimalbrüche vergleichen', text:'Man schreibt die Zahlen {Komma} unter Komma.|Dann vergleicht man von {links} nach rechts, beginnend beim größten Stellenwert.|Die erste Stelle mit verschiedenen Ziffern {entscheidet}, zum Beispiel 0,3 > 0,29.|Nullen am {Ende} ändern den Wert nicht: 0,5 = 0,50.|Bei negativen Zahlen ist die Zahl mit dem {kleineren} Betrag größer.',
+     extra:['rechts','Anfang','größeren'], hints:['Denke an die Stellenwerttafel.','Zuerst kommen die Ganzen, dann Zehntel, Hundertstel, …','−0,57 > −0,75, denn 0,57 ist der kleinere Betrag.']},
+    {k:'puzzle', title:'Begründungspuzzle', claim:'Begründe: 0,3 > 0,29', pieces:['Ich schreibe die Zahlen Komma unter Komma.','Die Einer sind gleich, beide Zahlen haben 0 Einer.','An der Zehntelstelle steht bei 0,3 eine 3, bei 0,29 eine 2.','3 Zehntel sind mehr als 2 Zehntel. Die Hundertstel muss ich nicht mehr vergleichen.','Also gilt 0,3 > 0,29.'],
+     extra:[{t:'0,29 ist größer, weil 29 größer als 3 ist.', why:'Die Ziffern hinter dem Komma sind keine natürliche Zahl. 0,29 hat nur 2 Zehntel und 9 Hundertstel.'}],
+     hints:['Beginne damit, wie du die Zahlen aufschreibst.','Ein Satz liest die Ziffern hinter dem Komma wie eine natürliche Zahl. Der gehört nicht hinein.','Reihenfolge: Komma unter Komma, Einer, Zehntel, Ergebnis.']},
+    {k:'puzzle', title:'Begründungspuzzle', claim:'Begründe: [3/4] < 0,8', pieces:['Ein Bruch und ein Dezimalbruch: Ich bringe beide in dieselbe Schreibweise.','Ich erweitere mit 25: [3/4] = [75/100] = 0,75.','Ich vergleiche 0,75 und 0,8 stellenweise: 7 Zehntel sind weniger als 8 Zehntel.','Also gilt [3/4] < 0,8.'],
+     extra:[{t:'Ich vergleiche die Zähler: 3 ist kleiner als 8.', why:'Die 8 in 0,8 ist kein Zähler, sondern bedeutet 8 Zehntel. Erst in dieselbe Schreibweise bringen, dann vergleichen.'}],
+     hints:['Was musst du tun, bevor du vergleichen kannst?','Ein Satz vergleicht Ziffern, die verschiedene Bedeutungen haben.','Reihenfolge: Schreibweise angleichen, umrechnen, vergleichen, Ergebnis.']}
    ]}
 ];
 function lineT(a){
@@ -852,20 +1010,31 @@ const MIS = {
   div:{t:'Einteilung passt nicht zu den Nennern', h:'Fragen: In wie viele Teile muss ein Ganzes geteilt werden, damit jede Karte auf einem Strich landet? Gemeinsames Vielfaches der Nenner.'},
   improper:{t:'Unechte Brüche oder gemischte Zahlen falsch eingeordnet', h:'Ganze zuerst abzählen lassen: 7/4 = 4/4 + 3/4 = 1 3/4.'},
   place:{t:'Abschnitte falsch abgezählt', h:'Abschnittslänge benennen lassen: 1 Abschnitt = 1/n.'},
-  sign:{t:'Vorzeichen übersehen (Zahl auf der falschen Seite der 0)', h:'Gegenzahl: gleicher Abstand zur 0, andere Seite.'},
   nnb:{t:'„Größerer Nenner = größerer Bruch“', h:'Übertragung von den natürlichen Zahlen. Teilegröße thematisieren: Je mehr Teile, desto kleiner jedes Teil (Doppelgerade, Pizza).'},
   smallden:{t:'„Kleinerer Nenner = größerer Bruch“, auch bei verschiedenen Zählern', h:'Übergeneralisierte Regel. Anzahl und Größe der Teile zugleich beachten, z. B. 3/4 < 4/5.'},
   numonly:{t:'Nur die Zähler verglichen', h:'Bei verschiedenen Nennern erst gleichnamig machen oder mit ½ bzw. 1 vergleichen.'},
   gap:{t:'„Gleich groß, weil jeweils ein Teil fehlt“', h:'Größe der fehlenden Teile vergleichen: 1/5 ist größer als 1/6, also ist 4/5 kleiner als 5/6.'},
   negabs:{t:'Bei negativen Zahlen den Betrag statt der Lage verglichen', h:'Je weiter links, desto kleiner: −3/4 liegt links von −1/2.'},
   strat:{t:'Vergleichsstrategie passt nicht zu den Zahlen', h:'Strategien sammeln und begründen lassen, wann welche greift (ALICE: „Was geht einfacher?“).'},
-  between:{t:'Kein Bruch zwischen zwei Brüchen gefunden', h:'Dichte: beide Brüche erweitern, z. B. mit 2 oder 10, dann liegt ein Bruch dazwischen.'},
+  between:{t:'Keine Zahl zwischen zwei Zahlen gefunden (Dichte)', h:'Brüche erweitern, bei Dezimalbrüchen eine Stelle anhängen: 0,24 = 0,240 und 0,25 = 0,250, dazwischen 0,245. Zwischen zwei Zahlen liegen unendlich viele (Padberg/Wartha 16.2).'},
   schein:{t:'Brüche wie 21/7 nicht als natürliche oder ganze Zahl erkannt', h:'Erst dividieren lassen: 21/7 = 3, −8/4 = −2.'},
   setneg:{t:'Negative ganze Zahlen falsch zugeordnet', h:'ℕ enthält keine negativen Zahlen; −2 gehört zu ℤ.'},
   setfrac:{t:'Echte Brüche den ganzen oder natürlichen Zahlen zugeordnet', h:'Geht die Division auf? Nur dann ist es eine ganze Zahl.'},
   hn:{t:'Hauptnenner nicht sicher bestimmt', h:'Vielfachenreihe des größeren Nenners aufschreiben lassen, bis der kleinere Nenner aufgeht.'},
   erw:{t:'Beim Erweitern Zähler und Nenner nicht gleich behandelt', h:'Erweitern heißt: Zähler und Nenner mit derselben Zahl multiplizieren. Am Rechteck oder an der Zahlengeraden zeigen.'},
-  merk:{t:'Merksätze oder Begründungen noch unsicher', h:'Merksatz gemeinsam formulieren und an der Zahlengeraden zeigen lassen.'}
+  merk:{t:'Merksätze oder Begründungen noch unsicher', h:'Merksatz gemeinsam formulieren und an der Zahlengeraden zeigen lassen.'},
+  kt:{t:'Dezimalbrüche: Ziffern hinter dem Komma wie natürliche Zahl gelesen („Komma trennt“ / „Kein Komma“)', h:'Typisch: 0,3 < 0,29, weil 3 < 29, oder 2,3 < 2,0004. Stellenwerte mitsprechen lassen (3 Zehntel gegen 2 Zehntel 9 Hundertstel), Komma unter Komma in der Stellenwerttafel, Zahlengerade mit Lupe. Bewusst Paare mit verschieden vielen Nachkommastellen wählen (Padberg/Wartha 2017, Kap. 16.3).'},
+  lik:{t:'Dezimalbrüche: „Länger ist kleiner“', h:'Typisch: 0,375 < 0,25, weil Tausendstel kleiner als Hundertstel sind. Übergeneralisierung eines richtigen Gedankens; tritt eher bei leistungsstärkeren Lernenden auf. Anzahl und Größe der Stellen zugleich betrachten.'},
+  null:{t:'Dezimalbrüche: Nullstrategie („Null nach dem Komma = klein“)', h:'Diagnoseaufgabe: 0,03; 0,009; 0,029 ordnen lassen. Stellenweise von links vergleichen und an der Zahlengeraden zeigen.'},
+  align:{t:'Stellenwerttafel rechtsbündig statt Komma unter Komma', h:'Übertragung von den natürlichen Zahlen. Einer immer in Spalte E; Zahlen mit Folie stellenweise von links abdecken (Mosandl/Sprenger).'},
+  dstelle:{t:'Dezimalbrüche: stellenweiser Vergleich unsicher', h:'Satz: Beginnend beim größten Stellenwert vergleichen, die erste unterschiedliche Stelle entscheidet. Leere Stellen als 0 denken.'},
+  dnegabs:{t:'Negative Dezimalbrüche: Betrag statt Lage verglichen', h:'Gegenüberstellung an der Zahlengeraden: −0,57 liegt rechts von −0,75. Kleinerer Betrag = größere Zahl.'},
+  lupe:{t:'Ausschnitt der Zahlengeraden (Lupe) falsch gewählt', h:'Zehntel bzw. Hundertstel benennen lassen: 0,29 hat 2 Zehntel, liegt also zwischen 0,2 und 0,3.'},
+  conv:{t:'Bruch und Dezimalbruch: Umwandlung unsicher', h:'Nenner durch Erweitern oder Kürzen auf 10, 100, 1000 bringen; Ziffern nach Stellenwerten eintragen: 75/100 = 0,75.'},
+  digits:{t:'Ziffernrätsel (passende Ziffern für ein Kästchen) nicht vollständig gelöst', h:'Systematisch alle Ziffern 0 bis 9 durchprobieren, Grenzfall (Gleichheit) beachten.'},
+  mitte:{t:'Zahl genau in der Mitte nicht bestimmt', h:'Abstand halbieren oder (a + b) : 2; an der Zahlengeraden mit Lupe zeigen.'},
+  fehler:{t:'Fehlerstrategien beim Dezimalbruchvergleich noch nicht durchschaut', h:'Fehlerbeispiele besprechen („Was hat sich Max gedacht?“) und mit einem Bild widerlegen lassen.'},
+  sign:{t:'Vorzeichen übersehen', h:'Gegenzahl: gleicher Abstand zur 0, andere Seite. Jede negative Zahl ist kleiner als jede positive.'}
 };
 
 /* ================= Speicher ================= */
@@ -945,9 +1114,9 @@ function saveRound(){ DB.round = {key:G.key, tasks:G.tasks, idx:G.idx, results:G
 function loadTask(){
   const t = G.t = G.tasks[G.idx];
   G.errors = 0; G.fails = 0; G.hintOpen = false; G.tier = 1; G.hintCard = null; G.selected = null; G.n = null; G.pending = null; G.minimal = false;
-  G.taskStart = Date.now(); G.taskMis = []; G.hintsUsed = 0; G.help = false; G.cmpWrong = null; G.stratTried = {}; G.chosen = null; G.calc = null; G.exp = null; G.after = null; G.showPt = false; G.sl = []; G.act = 0; G.ord = null;
-  G.cards = []; tray.innerHTML = ''; flags.innerHTML = ''; $('vennCards').innerHTML = '';
-  ['stage','legend','venn','divide','cmp','builder','clozeBox','puzzleBox','calc','orderBox'].forEach(id => { $(id).hidden = true; });
+  G.taskStart = Date.now(); G.taskMis = []; G.hintsUsed = 0; G.help = false; G.cmpWrong = null; G.stratTried = {}; G.chosen = null; G.calc = null; G.exp = null; G.after = null; G.showPt = false; G.sl = []; G.act = 0; G.ord = null; G.X = null; G.pv = null; G.zm = null; G.dg = null; G.od = null; G.mc = null; G.zf = null;
+  G.cards = []; tray.innerHTML = ''; flags.innerHTML = ''; zflags.innerHTML = ''; $('vennCards').innerHTML = '';
+  ['stage','zstage','legend','venn','divide','cmp','builder','clozeBox','puzzleBox','calc','orderBox','pvtBox','mcBox','digBox','oddBox','ziffBox'].forEach(id => { $(id).hidden = true; });
   $('chips').hidden = true; $('belowLine').hidden = true; tray.hidden = true; $('unit').hidden = true;
   setFeedback('', '');
   if (t.k === 'line' || t.k === 'double'){
@@ -969,6 +1138,12 @@ function loadTask(){
   else if (t.k === 'sym'){ G.A = P(t.a); G.B = P(t.b); G.step = 'cmp'; }
   else if (t.k === 'calc'){ G.A = P(t.a); G.B = t.b ? P(t.b) : null; setupCalc(t.t, t.rel); G.step = 'calc'; }
   else if (t.k === 'order'){ G.ord = {items:shuffle(t.c.map((x, i) => ({id:i, f:P(x)}))), chain:t.c.map(() => null), ok:{}}; G.step = 'order'; }
+  else if (t.k === 'pvt'){ setupPvt(t); G.step = 'pvt'; }
+  else if (t.k === 'zoom'){ setupZoom(t); $('belowLine').hidden = false; tray.hidden = false; }
+  else if (t.k === 'digits'){ G.dg = {sel:new Set(), bad:new Set(), want:digValid(t)}; G.step = 'dig'; }
+  else if (t.k === 'odd'){ G.od = {cands:oddCands(t), pick:null, bad:[]}; G.step = 'odd'; }
+  else if (t.k === 'mc'){ G.mc = {opts:shuffle(t.o.map((o, i) => Object.assign({i}, o))), tried:{}}; G.A = P(t.a); G.B = P(t.b); G.step = 'mc'; }
+  else if (t.k === 'ziff'){ setupZiff(t); G.step = 'ziff'; }
   render(true);
 }
 
@@ -976,7 +1151,7 @@ function loadTask(){
 function setFeedback(type, html){ feedback.className = 'feedback prose' + (type ? ' ' + type : ''); feedback.innerHTML = html; }
 function render(fresh){
   const t = G.t, u = G.u;
-  $('lvlName').textContent = u.sich ? `${u.T.name}: Sicherung` : `${u.T.name}, Level ${u.i + 1}`;
+  $('lvlName').textContent = u.sich ? `${u.T.short}: Sicherung` : `${u.T.short}, Level ${u.i + 1}`;
   $('whoTag').textContent = DB.name ? DB.name : '';
   $('taskCount').textContent = `Aufgabe ${G.idx + 1} von ${G.tasks.length}`;
   const total = G.results.reduce((s, r) => s + r.stars, 0);
@@ -1006,9 +1181,21 @@ function render(fresh){
     }
     drawStage(fresh); layoutFlags();
   }
-  const signKind = t.k === 'strat' || t.k === 'sym' || t.k === 'double' || (t.k === 'calc' && (t.t === 'hn' || t.t === 'gz')) || (t.k === 'line' && t.then === 'cmp');
+  const signKind = t.k === 'strat' || t.k === 'sym' || t.k === 'double' || (t.k === 'calc' && (t.t === 'hn' || t.t === 'gz' || t.t === 'dez')) || (t.k === 'line' && t.then === 'cmp') || t.k === 'pvt' || t.k === 'mc' || (t.k === 'zoom' && t.then === 'cmp');
+  if (t.k === 'zoom'){
+    drawZoom(fresh); layoutZ();
+    $('trayLabel').textContent = G.step === 'zoom' ? 'Diese Zahlen sollen genau auf einen Strich:' : (G.step === 'zplace' && G.cards.some(c => c.tick === null)) ? 'Deine Karten:' : '';
+    tray.hidden = !G.cards.some(c => c.tick === null); $('unit').hidden = false; $('unit').innerHTML = '1 Abschnitt = ' + dH(scaledStr(1, G.zm.d));
+    G.cards.forEach(c => { c.el.classList.toggle('idle', G.step !== 'zplace' || c.locked); c.el.classList.toggle('pickable', G.step === 'pick'); });
+  }
+  $('pvtBox').hidden = t.k !== 'pvt'; if (t.k === 'pvt') renderPvt();
+  $('mcBox').hidden = t.k !== 'mc'; if (t.k === 'mc') renderMc();
+  $('digBox').hidden = t.k !== 'digits'; if (t.k === 'digits') renderDig();
+  $('oddBox').hidden = t.k !== 'odd'; if (t.k === 'odd') renderOdd();
+  $('ziffBox').hidden = t.k !== 'ziff'; if (t.k === 'ziff') renderZiff();
+  $('zstage').hidden = t.k !== 'zoom';
   $('cmp').hidden = !(['cmp', 'strat', 'strat2', 'calcsign'].includes(G.step) || (G.step === 'done' && signKind));
-  $('calc').hidden = !(G.calc && G.step !== 'strat'); if (!$('calc').hidden) renderCalc();
+  $('calc').hidden = !(G.calc && G.step !== 'strat' && !(G.calc.t === 'dez' && G.step !== 'calc')); if (!$('calc').hidden) renderCalc();
   $('orderBox').hidden = t.k !== 'order'; if (t.k === 'order') renderOrder();
   if (!$('cmp').hidden) renderCmp();
   $('builder').hidden = t.k !== 'between'; if (t.k === 'between') renderBuilder();
@@ -1021,6 +1208,9 @@ function render(fresh){
 }
 function renderSteps(){
   const t = G.t, el = $('steps');
+  const dz = t.k === 'pvt' ? [['Komma unter Komma', 'Stelle finden', 'Vergleichen'], ['pvt', 'pvtcol', 'cmp']] : t.k === 'mc' ? [['Denkfehler erklären', 'Richtig vergleichen'], ['mc', 'cmp']]
+    : t.k === 'zoom' ? [['Lupe', 'Einordnen', t.then === 'cmp' ? 'Vergleichen' : 'Auswählen'], ['zoom', 'zplace', t.then === 'cmp' ? 'cmp' : 'pick']] : (t.k === 'calc' && t.t === 'dez') ? [['Umwandeln', 'Vergleichen'], ['calc', 'calcsign']] : null;
+  if (dz){ el.hidden = false; const cur = G.step === 'done' ? 99 : dz[1].indexOf(G.step); el.innerHTML = dz[0].map((nm, i) => `<span class="stepchip${i === cur ? ' on' : i < cur ? ' past' : ''}"><b>${i < cur ? '✓' : i + 1}</b>${nm}</span>`).join(''); return; }
   let names = [];
   if (t.k === 'line') names = ['Einteilen', 'Einordnen'].concat(t.then === 'cmp' ? ['Vergleichen'] : t.then === 'max' || t.then === 'min' ? ['Auswählen'] : []);
   else if (t.k === 'double') names = ['Einordnen', 'Vergleichen'];
@@ -1047,21 +1237,32 @@ function renderInstr(){
     case 'cmp': {
       const [A, B] = cmpPair();
       I.innerHTML = 'Vergleiche: Welches Zeichen gehört zwischen die Zahlen?';
-      S.innerHTML = t.k === 'double' ? 'Schau, welche Zahl weiter rechts liegt. Die gestrichelten Linien helfen dir.' : t.k === 'sym' ? 'Hier gibt es keine Zahlengerade. Überlege mit einer passenden Strategie und rechne im Heft.' : 'Die Zahl, die weiter rechts liegt, ist größer.';
+      S.innerHTML = t.k === 'double' ? 'Schau, welche Zahl weiter rechts liegt. Die gestrichelten Linien helfen dir.' : t.k === 'pvt' ? 'In der markierten Spalte unterscheiden sich die Ziffern zuerst.' : t.k === 'mc' ? 'Vergleiche jetzt richtig: Komma unter Komma, dann von links.' : t.k === 'sym' && hasDec(G.A, G.B) ? 'Hier gibt es keine Zahlengerade. Vergleiche stellenweise oder bringe beide Zahlen zuerst in dieselbe Schreibweise.' : t.k === 'sym' ? 'Hier gibt es keine Zahlengerade. Überlege mit einer passenden Strategie und rechne im Heft.' : 'Die Zahl, die weiter rechts liegt, ist größer.';
       break; }
     case 'pick': I.textContent = t.then === 'max' ? 'Welche Zahl ist am größten?' : 'Welche Zahl ist am kleinsten?'; S.innerHTML = 'Tippe die Karte auf der Zahlengeraden an.'; break;
     case 'strat': I.innerHTML = 'Welcher Weg ist hier am geschicktesten?'; S.innerHTML = 'Wähle zuerst eine Strategie. Setze dann das Zeichen.'; break;
     case 'strat2': I.innerHTML = 'Setze jetzt das richtige Zeichen.'; S.innerHTML = G.exp ? 'Beide Brüche haben jetzt denselben Nenner.' : 'Nutze deine Strategie.'; break;
     case 'build': I.innerHTML = `Finde einen Bruch zwischen ${numH(G.A)} und ${numH(G.B)}.`; S.innerHTML = 'Stelle Zähler und Nenner mit den Knöpfen ein und tippe auf „Prüfen“. Danach siehst du, wo dein Bruch liegt.'; break;
+    case 'pvt': I.textContent = 'Trage die Zahlen richtig in die Stellenwerttafel ein.'; S.innerHTML = 'Die Zahlen stehen rechtsbündig, wie man natürliche Zahlen schreibt. Bei Dezimalbrüchen gilt aber: Komma unter Komma. Schiebe jede Zahl, bis ihr Komma auf der roten Linie liegt.'; break;
+    case 'pvtcol': I.textContent = 'In welcher Spalte unterscheiden sich die Ziffern zuerst?'; S.innerHTML = 'Vergleiche von links nach rechts, beginnend beim größten Stellenwert. Tippe oben auf die Spalte.'; break;
+    case 'zoom': I.textContent = 'Vergrößere mit der Lupe.'; S.innerHTML = `Tippe auf der Zahlengeraden den Abschnitt an, in dem ${G.cards.length === 2 ? 'beide Zahlen' : 'alle Zahlen'} liegen. Die Lupe vergrößert ihn zehnfach, bis jede Zahl genau auf einem Strich landen kann.`; break;
+    case 'zplace': I.textContent = 'Setze jede Zahl auf ihren Strich.'; S.innerHTML = 'Ziehe die Karten auf die Zahlengerade. Du kannst auch eine Karte antippen und danach die Stelle auf der Zahlengeraden.'; break;
+    case 'dig': I.textContent = 'Welche Ziffern passen für das Kästchen?'; S.innerHTML = 'Die Aussage soll stimmen. Es kann mehrere passende Ziffern geben.'; break;
+    case 'odd': I.textContent = 'Hier hat der Druckfehlerteufel zugeschlagen.'; S.innerHTML = 'Eine Zahl ist nicht richtig eingeordnet. Tippe sie an.'; break;
+    case 'mc': I.textContent = 'Was wurde hier gedacht?'; S.innerHTML = 'Finde heraus, welcher Denkfehler hinter der Aussage steckt.'; break;
+    case 'ziff': I.textContent = 'Lege eine Zahl aus Ziffernkärtchen.'; S.innerHTML = 'Ziehe die Kärtchen in die Reihe oder tippe sie nacheinander an. Das Komma ist auch ein Kärtchen.'; break;
     case 'calc': {
       const c = G.calc;
-      if (c.t === 'hn'){ I.textContent = 'Lege den Hauptnenner fest und mache die Brüche gleichnamig.'; S.innerHTML = 'Der Hauptnenner ist das kleinste gemeinsame Vielfache der Nenner. Tippe ein Feld an und trage die Zahlen mit den Zifferntasten ein.'; }
+      if (c.t === 'dbet'){ I.textContent = 'Finde eine Zahl, die dazwischen liegt.'; S.innerHTML = 'Tippe die Zahl mit den Zifferntasten ein, das Komma hat eine eigene Taste. Nach dem Prüfen siehst du, wo deine Zahl liegt.'; }
+      else if (c.t === 'dmid'){ I.textContent = 'Welche Zahl liegt genau in der Mitte?'; S.innerHTML = 'Tippe die Zahl mit den Zifferntasten ein. Mit ± setzt du ein Minuszeichen.'; }
+      else if (c.t === 'dez'){ I.textContent = 'Schreibe den Bruch als Dezimalbruch.'; S.innerHTML = 'Bringe den Nenner zuerst auf 10, 100 oder 1000. Tippe ein Feld an und trage die Zahlen ein. Danach vergleichst du.'; }
+      else if (c.t === 'hn'){ I.textContent = 'Lege den Hauptnenner fest und mache die Brüche gleichnamig.'; S.innerHTML = 'Der Hauptnenner ist das kleinste gemeinsame Vielfache der Nenner. Tippe ein Feld an und trage die Zahlen mit den Zifferntasten ein.'; }
       else if (c.t === 'gz'){ I.textContent = 'Bringe beide Brüche auf denselben Zähler.'; S.innerHTML = 'Trage zuerst den gemeinsamen Zähler ein, dann die neuen Nenner. Gleicher Zähler: Je kleiner der Nenner, desto größer der Bruch.'; }
       else if (c.t === 'fill'){ I.textContent = 'Ergänze einen passenden Zähler.'; S.innerHTML = 'Der Bruch soll zwischen den beiden anderen liegen.'; }
       else { I.textContent = 'Ergänze einen passenden Nenner.'; S.innerHTML = 'Die Aussage soll stimmen. Es gibt mehrere richtige Lösungen.'; }
       break; }
-    case 'calcsign': I.textContent = 'Setze jetzt das richtige Zeichen.'; S.innerHTML = G.calc.t === 'gz' ? 'Beide Brüche haben jetzt denselben Zähler.' : 'Beide Brüche haben jetzt denselben Nenner.'; break;
-    case 'order': I.textContent = 'Ordne die Brüche der Größe nach.'; S.innerHTML = 'Beginne mit dem kleinsten Bruch. Ziehe die Brüche in die Kette oder tippe sie nacheinander an. Tippe einen Bruch in der Kette an, um ihn zurückzulegen.'; break;
+    case 'calcsign': I.textContent = 'Setze jetzt das richtige Zeichen.'; S.innerHTML = G.calc.t === 'dez' ? 'Jetzt vergleichst du zwei Dezimalbrüche: Komma unter Komma, dann von links.' : G.calc.t === 'gz' ? 'Beide Brüche haben jetzt denselben Zähler.' : 'Beide Brüche haben jetzt denselben Nenner.'; break;
+    case 'order': I.textContent = G.ord.items.some(x => isDec(x.f)) ? 'Ordne die Zahlen der Größe nach.' : 'Ordne die Brüche der Größe nach.'; S.innerHTML = G.ord.items.some(x => isDec(x.f)) ? 'Beginne mit der kleinsten Zahl. Ziehe die Zahlen in die Kette oder tippe sie nacheinander an. Tippe eine Zahl in der Kette an, um sie zurückzulegen.' : 'Beginne mit dem kleinsten Bruch. Ziehe die Brüche in die Kette oder tippe sie nacheinander an. Tippe einen Bruch in der Kette an, um ihn zurückzulegen.'; break;
     case 'sets': I.textContent = 'Sortiere die Zahlen in die Zahlenmengen.'; S.innerHTML = 'ℕ liegt in ℤ, und ℤ liegt in ℚ. Lege jede Zahl in das innerste Feld, zu dem sie gehört. Tipp: Prüfe bei Brüchen, ob die Division aufgeht.'; break;
     case 'cloze': I.textContent = t.title; S.innerHTML = 'Ziehe die Wörter in die Lücken oder tippe zuerst eine Lücke und dann ein Wort an. Ein paar Wörter bleiben übrig.'; break;
     case 'puzzle': I.textContent = t.title; S.innerHTML = 'Ziehe die Sätze in die richtige Reihenfolge oder tippe sie nacheinander an. Ein Satz passt nicht in die Begründung.'; break;
@@ -1079,6 +1280,10 @@ function updateMain(){
     case 'puzzle': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = G.pz.slots.some(x => x === null); break;
     case 'calc': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = G.sl.some(x => x.val === ''); break;
     case 'order': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = G.ord.chain.some(x => x === null); break;
+    case 'pvt': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = false; break;
+    case 'zplace': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = !G.cards.every(c => c.tick !== null); break;
+    case 'dig': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = !G.dg.sel.size; break;
+    case 'ziff': mainBtn.textContent = 'Prüfen'; mainBtn.disabled = G.zf.chain.some(x => x === null); break;
     default: mainBtn.hidden = true;
   }
 }
@@ -1306,14 +1511,14 @@ function eqNote(){
 /* ================= Vergleichen ================= */
 function cmpPair(){
   const t = G.t;
-  if (t.k === 'strat' || t.k === 'sym' || t.k === 'calc') return [G.A, G.B];
+  if (t.k === 'strat' || t.k === 'sym' || t.k === 'calc' || t.k === 'pvt' || t.k === 'mc') return [G.A, G.B];
   const byId = id => G.cards.find(c => c.id === id).f;
   return [byId(0), byId(1)];
 }
 function renderCmp(){
   const t = G.t, [A, B] = cmpPair(), done = G.step === 'done';
   const shown = done ? cmpOf(A, B) : (G.cmpWrong || '?');
-  const ea = G.exp ? `<span class="eqx">=</span>${G.exp[0]}` : '', eb = G.exp ? `${G.exp[1]}<span class="eqx">=</span>` : '';
+  const ea = G.exp ? `<span class="eqx">=</span>${G.exp[0]}` : '', eb = G.exp && G.exp[1] ? `${G.exp[1]}<span class="eqx">=</span>` : '';
   $('cmpRow').innerHTML = `${numH(A)}${ea}<span class="cmp-slot${done ? ' ok' : G.cmpWrong ? ' bad' : ''}" id="cmpSlot" aria-label="Vergleichszeichen">${signH(shown)}</span>${eb}${numH(B)}`;
   const signsOn = G.step === 'cmp' || G.step === 'strat2' || G.step === 'calcsign';
   $('signs').hidden = done;
@@ -1332,8 +1537,8 @@ $('signs').addEventListener('click', e => {
   const s = b.dataset.sign, [A, B] = cmpPair(), right = cmpOf(A, B);
   if (s === right){ G.cmpWrong = null; return finish(false); }
   G.errors++; G.fails++; G.cmpWrong = s;
-  const code = diagCmp(A, B, s); addMis(code);
-  fail(cmpMsg(A, B, s, code));
+  const code = diagAny(A, B, s); addMis(code);
+  fail(msgAny(A, B, s, code));
   render(false);
   const slot = $('cmpSlot'); if (slot){ slot.classList.remove('shake'); void slot.offsetWidth; slot.classList.add('shake'); }
 });
@@ -1392,9 +1597,10 @@ function pickCard(c){
     else if (c.f.den === Math.max(...dens)) code = 'nnb';
     else if (c.f.num === Math.max(...nums)) code = 'numonly';
   } else if (c.f.num < 0 && Math.abs(c.f.num) / c.f.den === Math.min(...G.cards.map(o => Math.abs(valOf(o.f))))) code = 'negabs';
+  if (hasDec(c.f, best.f)) code = decDiag(c.f, best.f, want === 'max' ? '>' : '<');
   addMis(code);
   c.el.classList.add('chosen-bad'); setTimeout(() => c.el.classList.remove('chosen-bad'), 900);
-  const why = code === 'smallden' ? ` ${numH(c.f)} hat zwar den kleinsten Nenner, aber das allein entscheidet nicht.` : code === 'nnb' ? ' Ein großer Nenner bedeutet kleine Teile.' : code === 'negabs' ? ' Bei negativen Zahlen ist die Zahl am kleinsten, die am weitesten links liegt.' : '';
+  const why = hasDec(c.f) ? ({kt:' Lies die Ziffern hinter dem Komma nicht wie eine natürliche Zahl.', lik:' Mehr Stellen hinter dem Komma bedeuten nicht automatisch eine kleinere Zahl.', null:' Eine Null hinter dem Komma heißt nicht automatisch „klein“.', dnegabs:' Bei negativen Zahlen ist die Zahl mit dem kleineren Betrag größer.'}[code] || '') : code === 'smallden' ? ` ${numH(c.f)} hat zwar den kleinsten Nenner, aber das allein entscheidet nicht.` : code === 'nnb' ? ' Ein großer Nenner bedeutet kleine Teile.' : code === 'negabs' ? ' Bei negativen Zahlen ist die Zahl am kleinsten, die am weitesten links liegt.' : '';
   fail(`${numH(c.f)} ist nicht die ${want === 'max' ? 'größte' : 'kleinste'} Zahl.${why} Schau, welche Karte am weitesten ${want === 'max' ? 'rechts' : 'links'} liegt.`);
   render(false);
 }
@@ -1499,7 +1705,7 @@ function checkBetween(){
 /* ================= Rechnen mit Zifferntasten ================= */
 function setupCalc(type, rel){
   G.calc = {t:type, rel};
-  const names = type === 'hn' ? ['hn', 'a2', 'b2'] : type === 'gz' ? ['z', 'ad', 'bd'] : ['x'];
+  const names = DEC_SLOTS[type] || (type === 'hn' ? ['hn', 'a2', 'b2'] : type === 'gz' ? ['z', 'ad', 'bd'] : ['x']);
   G.sl = names.map(n => ({n, val:'', state:''})); G.act = 0; G.fresh = true; G.exp = null;
 }
 const gv = x => `<span class="g">${x}</span>`;
@@ -1507,7 +1713,8 @@ const Fx = (top, bot) => `<span class="F">${top}<span class="fb"></span>${bot}</
 function slotB(i){ const s = G.sl[i]; return `<button type="button" class="nslot${i === G.act && G.step === 'calc' ? ' active' : ''}${s.state ? ' ' + s.state : ''}" data-i="${i}" aria-label="Eingabefeld ${i + 1}" ${s.state === 'ok' || G.step !== 'calc' ? 'disabled' : ''}>${s.val}</button>`; }
 function renderCalc(){
   const c = G.calc, A = G.A, B = G.B; let m = '';
-  if (c.t === 'hn'){
+  if (DEC_SLOTS[c.t]) m = renderDecCalc();
+  else if (c.t === 'hn'){
     const L = G.sl[0].val || '?';
     m = `<div class="calc-line"><span class="lbl">Hauptnenner von ${A.den} und ${B.den}:</span>${slotB(0)}</div>
       <div class="calc-line"><span class="pair">${numH(A)}<span>=</span>${Fx(slotB(1), gv(L))}</span><span class="pair" style="margin-left:18px">${numH(B)}<span>=</span>${Fx(slotB(2), gv(L))}</span></div>`;
@@ -1520,7 +1727,7 @@ function renderCalc(){
   } else {
     m = `<div class="calc-line">${Fx(gv(A.num), slotB(0))}<span>${signH(c.rel)}</span>${numH(A)}</div>`;
   }
-  const pad = G.step === 'calc' ? `<div class="numpad" role="group" aria-label="Zifferntasten">${[1,2,3,4,5,6,7,8,9].map(n => `<button type="button" data-k="${n}">${n}</button>`).join('')}<button type="button" class="fn" data-k="del" aria-label="Löschen">⌫</button><button type="button" data-k="0">0</button><button type="button" class="fn" data-k="next">nächstes<br>Feld</button></div>` : '';
+  const pad = G.step === 'calc' ? `<div class="numpad" role="group" aria-label="Zifferntasten">${[1,2,3,4,5,6,7,8,9].map(n => `<button type="button" data-k="${n}">${n}</button>`).join('')}<button type="button" class="fn" data-k="del" aria-label="Löschen">⌫</button><button type="button" data-k="0">0</button>${DEC_SLOTS[c.t] ? '<button type="button" data-k="," aria-label="Komma">,</button><button type="button" class="fn" data-k="-" aria-label="Minuszeichen">±</button><button type="button" class="fn wide" data-k="next">nächstes Feld</button>' : '<button type="button" class="fn" data-k="next">nächstes<br>Feld</button>'}</div>` : '';
   $('calc').innerHTML = `<div class="calc-math">${m}</div>${pad}`;
 }
 function numKey(k){
@@ -1528,7 +1735,9 @@ function numKey(k){
   if (k === 'next'){ const open = G.sl.map((_, i) => i).filter(i => G.sl[i].state !== 'ok'); if (open.length){ const p = open.indexOf(G.act); G.act = open[(p + 1) % open.length]; G.fresh = true; renderCalc(); } return; }
   const s = G.sl[G.act]; if (!s || s.state === 'ok') return;
   if (k === 'del'){ s.val = s.val.slice(0, -1); G.fresh = false; }
-  else { s.val = (G.fresh || s.val === '0') ? k : (s.val.length < 3 ? s.val + k : s.val); G.fresh = false; }
+  else if (k === ','){ if (!isDecSlot(s) || (s.val.includes(',') && !G.fresh)) return; s.val = (G.fresh || s.val === '') ? '0,' : s.val === '−' ? '−0,' : s.val + ','; G.fresh = false; }
+  else if (k === '-'){ if (!isDecSlot(s)) return; s.val = s.val[0] === '−' ? s.val.slice(1) : '−' + (G.fresh ? '' : s.val); G.fresh = false; }
+  else { const mx = isDecSlot(s) ? 9 : 3; s.val = (G.fresh || s.val === '0') ? k : s.val === '−0' ? '−' + k : (s.val.length < mx ? s.val + k : s.val); G.fresh = false; }
   if (s.state === 'bad' || s.state === 'soft') s.state = '';
   renderCalc(); updateMain();
 }
@@ -1542,6 +1751,7 @@ function calcFail(idx, msg, code){
   fail(msg); renderCalc(); updateMain();
 }
 function checkCalc(){
+  if (DEC_SLOTS[G.calc.t]) return checkDecCalc();
   const c = G.calc, A = G.A, B = G.B, v = G.sl.map(x => parseInt(x.val, 10));
   if (c.t === 'fill'){
     if (v[0] > A.num && v[0] < B.num) return finish(false);
@@ -1575,13 +1785,15 @@ function checkCalc(){
   render(false);
 }
 function calcExplain(){
-  const c = G.calc, A = G.A, B = G.B, s = signH(cmpOf(A, B));
+  if (DEC_SLOTS[G.calc.t]) return decCalcExplain();
+  const c = G.calc, A = G.A, B = G.B, s = A && B ? signH(cmpOf(A, B)) : '';
   if (c.t === 'fill'){ const x = parseInt(G.sl[0].val, 10); return `${numH(A)} &lt; ${frH(x, A.den)} &lt; ${numH(B)}, denn ${A.num} &lt; ${x} &lt; ${B.num}. Gleicher Nenner: Der Zähler entscheidet.`; }
   if (c.t === 'fillden'){ const d = parseInt(G.sl[0].val, 10); return `${frH(A.num, d)} ${signH(c.rel)} ${numH(A)}: gleicher Zähler, und ${d} ist ${c.rel === '>' ? 'kleiner' : 'größer'} als ${A.den}. Die Teile sind also ${c.rel === '>' ? 'größer' : 'kleiner'}.`; }
   if (c.t === 'gz') return `Gemeinsamer Zähler: ${numH(A)} = ${G.exp[0]} und ${numH(B)} = ${G.exp[1]}. Bei gleichem Zähler ist der Bruch mit dem kleineren Nenner größer. Also gilt ${numH(A)} ${s} ${numH(B)}.`;
   return `Hauptnenner ${lcm(A.den, B.den)}: ${numH(A)} = ${G.exp[0]} und ${numH(B)} = ${G.exp[1]}. Bei gleichem Nenner entscheidet der Zähler. Also gilt ${numH(A)} ${s} ${numH(B)}.`;
 }
 function calcHints(){
+  if (DEC_SLOTS[G.calc.t]) return decCalcHints();
   const c = G.calc, A = G.A, B = G.B;
   if (G.step === 'calcsign' || (G.step === 'strat2' && G.exp)) return [c.t === 'gz' ? 'Beide Brüche haben jetzt denselben Zähler.' : 'Beide Brüche haben jetzt denselben Nenner.', c.t === 'gz' ? 'Bei gleichem Zähler ist der Bruch mit dem kleineren Nenner größer.' : 'Bei gleichem Nenner ist der Bruch mit dem größeren Zähler größer.', calcExplain()];
   if (c.t === 'hn'){ const L = lcm(A.den, B.den), big = Math.max(A.den, B.den), sm = Math.min(A.den, B.den);
@@ -1626,12 +1838,14 @@ function checkOrder(){
   const X = o.items.find(x => x.id === o.chain[first]).f, Y = o.items.find(x => x.id === sorted[first]).f;
   o.chain = o.chain.map((id, k) => o.ok[k] ? id : null);
   G.errors++; G.fails++;
-  const code = diagCmp(Y, X, '>'); addMis(code);
-  fail(`An Platz ${first + 1} gehört ein kleinerer Bruch: ${numH(Y)} ist kleiner als ${numH(X)}.<br>${stratAdvice(X, Y)} Die grünen Plätze stimmen schon.`);
+  const code = diagAny(Y, X, '>'); addMis(code);
+  const dz = hasDec(X, Y);
+  fail(`An Platz ${first + 1} gehört ${dz ? 'eine kleinere Zahl' : 'ein kleinerer Bruch'}: ${numH(Y)} ist kleiner als ${numH(X)}.<br>${dz ? (isDec(X) && isDec(Y) ? stelleTxt(Y, X) : convTxt(X, Y)) + ' ' + decAdvice(X, Y) : stratAdvice(X, Y)} Die grünen Plätze stimmen schon.`);
   renderOrder(); updateMain();
 }
 function orderHints(){
   const fs = G.ord.items.map(x => x.f), sm = fs.slice().sort((p, q) => valOf(p) - valOf(q))[0];
+  if (fs.some(isDec)) return ['Vergleiche immer zwei Zahlen miteinander und suche zuerst die kleinste.', !fs.every(isDec) ? 'Schreibe die Brüche zuerst als Dezimalbrüche. Dann vergleichst du stellenweise von links.' : fs.some(f => f.num < 0) ? 'Negative Zahlen sind kleiner als positive. Bei zwei negativen Zahlen ist die mit dem größeren Betrag kleiner.' : 'Schreibe die Zahlen in Gedanken Komma unter Komma und vergleiche von links: Ganze, Zehntel, Hundertstel, …', `Die kleinste Zahl ist ${numH(sm)}.`];
   const sameD = fs.every(f => f.den === fs[0].den), sameN = fs.every(f => f.num === fs[0].num);
   return ['Vergleiche immer zwei Brüche miteinander und suche zuerst den kleinsten.',
     sameD ? 'Alle Brüche haben denselben Nenner: Ordne nach den Zählern.' : sameN ? 'Alle Brüche haben denselben Zähler: Je größer der Nenner, desto kleiner der Bruch.' : 'Nutze ½ oder 1 als Vergleich, frage „Was fehlt zum Ganzen?“ oder mache die Brüche gleichnamig.',
@@ -1797,6 +2011,526 @@ function checkPuzzle(){
   renderPuzzle();
 }
 
+/* ================= Dezimalbrüche ================= */
+const PLACE = {'2':'Hunderter', '1':'Zehner', '0':'Einer', '-1':'Zehntel', '-2':'Hundertstel', '-3':'Tausendstel', '-4':'Zehntausendstel', '-5':'Hunderttausendstel'};
+const PLACE_K = {'2':'H', '1':'Z', '0':'E', '-1':'z', '-2':'h', '-3':'t', '-4':'zt', '-5':'ht'};
+const isDec = f => !!(f && f.dec);
+const hasDec = (...fs) => fs.some(isDec);
+function toDec(f){
+  let n = f.num, d = f.den; const g = gcd(Math.abs(n), d); n /= g; d /= g;
+  let k = 0, p = 1; while (p % d !== 0 && k < 8){ p *= 10; k++; }
+  if (p % d) return null;
+  const N = Math.abs(n) * (p / d), ip = Math.floor(N / p), fp = String(N % p).padStart(k, '0');
+  return (n < 0 ? '−' : '') + ip + (k ? ',' + fp : '');
+}
+const decStr = f => f.dec ? f.ds : toDec(f);
+const dH = s => numH(P(s));
+function scaledStr(n, d){ const neg = n < 0, N = Math.abs(n), p = 10 ** d, ip = Math.floor(N / p), fp = String(N % p).padStart(d, '0'); return (neg ? '−' : '') + ip + (d ? ',' + fp : ''); }
+function dparts(f){ const s = (decStr(f) || '0').replace('−', ''); const sp = s.split(','); return {neg:f.num < 0, i:sp[0], fr:sp[1] || ''}; }
+function digitAt(dp, p){ if (p >= 0){ const k = dp.i.length - 1 - p; return k >= 0 ? +dp.i[k] : 0; } return +(dp.fr[-p - 1] || 0); }
+function firstDiff(A, B){
+  const a = dparts(A), b = dparts(B), hi = Math.max(a.i.length, b.i.length) - 1, lo = -Math.max(a.fr.length, b.fr.length);
+  for (let p = hi; p >= lo; p--){ const x = digitAt(a, p), y = digitAt(b, p); if (x !== y) return {p, x, y}; }
+  return null;
+}
+const pl = p => PLACE[String(p)];
+function zehner(f){ /* Bruch mit Zehnerpotenz im Nenner, für Bruch → Dezimalbruch */
+  const neg = f.num < 0, N = Math.abs(f.num), g = gcd(N, f.den), d = f.den / g; let P10 = 1; while (P10 % d && P10 < 1e8) P10 *= 10;
+  const k = P10 / d, mixed = f.mx && N > f.den && N % f.den;
+  if (mixed){ const W = Math.floor(N / f.den), r = N % f.den, rg = gcd(r, f.den), rd = f.den / rg; let Q = 1; while (Q % rd) Q *= 10; return {neg, W, z:r / rg * (Q / rd), P10:Q, k:Q / rd, d:rd, r:r / rg, red:rg > 1}; }
+  return {neg, W:0, z:N / g * k, P10, k, d, r:N / g, red:g > 1};
+}
+function zehnerH(f){ const z = zehner(f), sg = z.neg ? '<span class="sg" aria-hidden="true">−</span>' : ''; return `<span class="num" role="img" aria-label="${z.neg ? 'minus ' : ''}${z.W ? z.W + ' und ' : ''}${z.z}/${z.P10}">${sg}${z.W ? `<span class="w" aria-hidden="true">${z.W}</span>` : ''}${frIn(z.z, z.P10)}</span>`; }
+function parseNum(str){
+  const s = String(str || '').trim().replace(/\s+/g, ' ').replace('.', ',').replace(/^-/, '−');
+  if (/^−?\d+(,\d+)?$/.test(s) || /^−?\d+\/\d+$/.test(s) || /^−?\d+ \d+\/\d+$/.test(s)){ const f = P(s); return f.den ? f : null; }
+  return null;
+}
+function padDec(f, k){ const dp = dparts(f); return (f.num < 0 ? '−' : '') + dp.i + ',' + dp.fr.padEnd(k, '0'); }
+function midOf(A, B){ const n = A.num * B.den + B.num * A.den, d = 2 * A.den * B.den, g = gcd(Math.abs(n), d); const f = {num:n / g, den:d / g}; const s = toDec(f); return s ? P(s) : f; }
+
+function decDiag(A, B, s){
+  if (!hasDec(A, B)) return null;
+  if (!isDec(A) || !isDec(B)) return 'conv';
+  const right = cmpOf(A, B); if (s === right) return null;
+  if (A.num < 0 && B.num < 0 && s === cmpOf(absF(A), absF(B))) return 'dnegabs';
+  if ((A.num < 0) !== (B.num < 0)) return 'sign';
+  const a = dparts(A), b = dparts(B), neg = A.num < 0;
+  if (a.i !== b.i) return 'dstelle';
+  const fl = x => neg ? flip(x) : x, nat = (x, y) => x < y ? '<' : x > y ? '>' : '=';
+  const kt = fl(nat(+(a.fr || 0), +(b.fr || 0)));
+  const lik = a.fr.length === b.fr.length ? null : fl(a.fr.length > b.fr.length ? '<' : '>');
+  const z = x => x.match(/^0*/)[0].length;
+  const nul = z(a.fr) === z(b.fr) ? null : fl(z(a.fr) > z(b.fr) ? '<' : '>');
+  if (s === kt) return 'kt'; if (s === lik) return 'lik'; if (s === nul) return 'null';
+  return 'dstelle';
+}
+function stelleTxt(A, B){
+  const neg = A.num < 0 && B.num < 0, a = neg ? absF(A) : A, b = neg ? absF(B) : B, d = firstDiff(a, b);
+  if (!d) return `Nullen am Ende ändern den Wert nicht: ${numH(A)} = ${numH(B)}.`;
+  return `${neg ? 'Bei den Beträgen: ' : ''}An der ${pl(d.p)}stelle unterscheiden sich die Ziffern zuerst. ${numH(a)} hat ${d.x} ${pl(d.p)}, ${numH(b)} hat ${d.y} ${pl(d.p)}.`;
+}
+function convTxt(A, B){
+  const fr = isDec(A) ? B : A, dc = isDec(A) ? A : B, de = toDec(fr);
+  if (de) return `Schreibe zuerst den Bruch als Dezimalbruch: ${numH(fr)} = ${zehnerH(fr)} = ${dH(de)}.`;
+  const g = gcd(Math.abs(dc.num), dc.den);
+  return `${numH(fr)} lässt sich nicht als endlicher Dezimalbruch schreiben. Schreibe deshalb ${numH(dc)} als Bruch: ${numH(dc)} = ${numH({num:dc.num, den:dc.den})}${g > 1 ? ' = ' + numH({num:dc.num / g, den:dc.den / g}) : ''}.`;
+}
+function decAdvice(A, B){
+  if ((!isDec(A) || !isDec(B)) && !toDec(isDec(A) ? B : A)) return '<b>Strategie „Gleiche Schreibweise“:</b> Dieser Bruch wird kein endlicher Dezimalbruch. Schreibe deshalb den Dezimalbruch als Bruch und vergleiche wie bei Brüchen, zum Beispiel mit dem Hauptnenner.';
+  if (!isDec(A) || !isDec(B)) return '<b>Strategie „Gleiche Schreibweise“:</b> Bringe beide Zahlen in dieselbe Schreibweise. Meist geht es am schnellsten, den Bruch als Dezimalbruch zu schreiben: Nenner durch Erweitern oder Kürzen auf 10, 100 oder 1000 bringen.';
+  if (A.num < 0 || B.num < 0) return '<b>Strategie:</b> Prüfe zuerst die Vorzeichen. Sind beide Zahlen negativ, vergleiche die Beträge: Die Zahl mit dem kleineren Betrag ist größer.';
+  return '<b>Strategie „Stellenweise vergleichen“:</b> Komma unter Komma, dann von links nach rechts: Ganze, Zehntel, Hundertstel, … Die erste Stelle mit verschiedenen Ziffern entscheidet.';
+}
+function decMsg(A, B, s, code){
+  const base = `${numH(A)} ${signH(s)} ${numH(B)} stimmt nicht.`;
+  const why = {kt:' Achtung: Die Ziffern hinter dem Komma darfst du nicht wie eine natürliche Zahl lesen. Es kommt nicht darauf an, welche Zahl mehr Ziffern hat.',
+    lik:' Mehr Stellen hinter dem Komma bedeuten nicht, dass die Zahl kleiner ist. Es zählt, wie viele Zehntel, Hundertstel, … es sind.',
+    null:' Eine Null direkt hinter dem Komma macht eine Zahl nicht automatisch kleiner. Es zählt die erste Stelle, an der sich die Ziffern unterscheiden.',
+    dnegabs:' Du hast die Beträge verglichen. Bei negativen Zahlen ist die Zahl mit dem kleineren Betrag größer: Sie liegt näher an der 0, also weiter rechts.',
+    sign:' Jede positive Zahl ist größer als jede negative Zahl.', conv:' ' + convTxt(A, B)}[code] || '';
+  const k = G.t ? G.t.k : '', look = k === 'zoom' ? ' Schau auf die Zahlengerade: Welche Zahl liegt weiter rechts?' : k === 'pvt' ? ' Schau in die markierte Spalte der Stellenwerttafel.' : '';
+  const st = isDec(A) && isDec(B) && code !== 'sign' ? ' ' + stelleTxt(A, B) : '';
+  return `${base}${why}${look}${code === 'conv' ? '' : st}<br>${decAdvice(A, B)}`;
+}
+function decExplain(A, B){
+  const s = cmpOf(A, B), tail = `Also gilt ${numH(A)} ${signH(s)} ${numH(B)}.`;
+  if (!isDec(A) || !isDec(B)){
+    const fr = isDec(A) ? B : A, de = toDec(fr);
+    if (de){ const a2 = isDec(A) ? A : P(de), b2 = isDec(B) ? B : P(de); return `${numH(fr)} = ${zehnerH(fr)} = ${dH(de)}. ${s === '=' ? 'Beide Zahlen sind gleich.' : stelleTxt(a2, b2)} ${tail}`; }
+    const dc = isDec(A) ? A : B, g = gcd(Math.abs(dc.num), dc.den), F = {num:dc.num / g, den:dc.den / g};
+    const A2 = isDec(A) ? F : A, B2 = isDec(B) ? F : B;
+    return `${numH(fr)} ist kein endlicher Dezimalbruch. Deshalb: ${numH(dc)} = ${numH(F)}. ${explainPair(A2, B2, 'gleichnamig')}`;
+  }
+  if ((A.num < 0) !== (B.num < 0)) return `Jede positive Zahl ist größer als jede negative. ${tail}`;
+  if (s === '=') return stelleTxt(A, B) + ' ' + tail;
+  if (A.num < 0) return `${stelleTxt(A, B)} Bei negativen Zahlen ist die Zahl mit dem kleineren Betrag größer. ${tail}`;
+  return `${stelleTxt(A, B)} ${tail}`;
+}
+function diagAny(A, B, s){
+  if (hasDec(A, B)){ if (G.calc && G.calc.t === 'dez' && G.exp){ const a2 = P(toDec(A)); return decDiag(a2, B, s); } return decDiag(A, B, s); }
+  return diagCmp(A, B, s);
+}
+function msgAny(A, B, s, code){
+  if (hasDec(A, B)){
+    if (G.calc && G.calc.t === 'dez' && G.exp){ const a2 = P(toDec(A)); return `${numH(A)} ${signH(s)} ${numH(B)} stimmt nicht. Vergleiche ${numH(a2)} und ${numH(B)}. ${stelleTxt(a2, B)}<br>${decAdvice(a2, B)}`; }
+    return decMsg(A, B, s, code);
+  }
+  return cmpMsg(A, B, s, code);
+}
+function decCmpHints(A, B){
+  const h = [];
+  if (G.t.k === 'zoom') h.push('Schau auf die Zahlengerade: Von zwei Zahlen ist die größer, die weiter rechts liegt.');
+  else if (G.t.k === 'pvt') h.push('In der markierten Spalte unterscheiden sich die Ziffern zuerst. Dort entscheidet sich der Vergleich.');
+  else if (!isDec(A) || !isDec(B)) h.push('Bringe beide Zahlen in dieselbe Schreibweise, zum Beispiel den Bruch als Dezimalbruch.');
+  else h.push('Schreibe die Zahlen in Gedanken Komma unter Komma. Vergleiche zuerst Vorzeichen und Ganze, dann Zehntel, Hundertstel, …');
+  h.push(isDec(A) && isDec(B) ? stelleTxt(A, B) + (A.num < 0 && B.num < 0 ? ' Denke daran: Bei negativen Zahlen ist die Zahl mit dem kleineren Betrag größer.' : '') : convTxt(A, B));
+  h.push(decExplain(A, B));
+  return h;
+}
+
+/* ---------- Stellenwerttafel ---------- */
+const pvtBox = $('pvtBox');
+function setupPvt(t){
+  const rows = t.c.map((s, i) => { const f = P(s), dp = dparts(f); return {i, f, s:f.ds, ip:dp.i, fr:dp.fr}; });
+  const ic = Math.max(...rows.map(r => r.ip.length)) + 1, fc = Math.max(...rows.map(r => r.fr.length)) + 1;
+  rows.forEach(r => { r.len = r.ip.length + r.fr.length; r.want = ic - r.ip.length; r.off = ic + fc - r.len; r.ok = false; });
+  G.pv = {rows, ic, fc, col:null, bad:null};
+  G.A = rows[0].f; G.B = rows[1].f;
+}
+function renderPvt(){
+  const pv = G.pv, n = pv.ic + pv.fc, st = G.step, aligned = st !== 'pvt';
+  const head = Array.from({length:n}, (_, c) => { const p = pv.ic - 1 - c; return `<button type="button" class="pvh${pv.col === c ? ' on' : ''}${pv.bad === c ? ' bad' : ''}" data-col="${c}" ${st === 'pvtcol' ? '' : 'tabindex="-1"'} aria-label="Spalte ${pl(p)}" title="${pl(p)}">${PLACE_K[String(p)]}</button>`; }).join('');
+  const rows = pv.rows.map((r, k) => {
+    const cells = Array.from({length:n}, (_, c) => { const ghost = aligned && c >= pv.ic + r.fr.length; return `<span class="pvc${pv.col === c ? ' on' : ''}${pv.bad === c ? ' bad' : ''}">${ghost ? '<i>0</i>' : ''}</span>`; }).join('');
+    const digs = (r.ip + r.fr).split('').map((d, i) => `<span class="pvd">${d}${i === r.ip.length - 1 ? '<b class="pvk" aria-hidden="true">,</b>' : ''}</span>`).join('');
+    return `<div class="pvr"><div class="pvg">${cells}<div class="pvb${r.ok ? ' ok' : ''}${aligned ? ' fixed' : ''}" data-r="${k}" style="--off:${r.off}" role="img" aria-label="${plain(r.f)}">${digs}</div></div>` +
+      (aligned ? '<span class="pvctl"></span>' : `<span class="pvctl"><button type="button" class="btn small" data-mv="-1" data-r="${k}" aria-label="${plain(r.f)} nach links">◀</button><button type="button" class="btn small" data-mv="1" data-r="${k}" aria-label="${plain(r.f)} nach rechts">▶</button></span>`) + '</div>';
+  }).join('');
+  pvtBox.innerHTML = `<div class="pvt" style="--n:${n};--ic:${pv.ic}"><div class="pvr head"><div class="pvg">${head}</div><span class="pvctl"></span></div>${rows}</div>` +
+    `<p class="pvleg">${Array.from({length:n}, (_, c) => { const p = pv.ic - 1 - c; return `<span><b>${PLACE_K[String(p)]}</b> ${pl(p)}</span>`; }).join('')}<span><b class="red">|</b> Kommalinie</span></p>`;
+  if (!aligned) pvtBox.querySelectorAll('.pvb').forEach(el => pvDrag(el));
+}
+function pvDrag(el){
+  const r = G.pv.rows[+el.dataset.r], n = G.pv.ic + G.pv.fc; let d = null;
+  el.addEventListener('pointerdown', e => { if (e.button || G.step !== 'pvt') return; e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (er){} d = {id:e.pointerId, sx:e.clientX, off:r.off, cw:el.firstElementChild.getBoundingClientRect().width}; el.classList.add('dragging'); });
+  el.addEventListener('pointermove', e => { if (!d || d.id !== e.pointerId) return; const o = clamp(Math.round(d.off + (e.clientX - d.sx) / d.cw), 0, n - r.len); if (o !== r.off){ r.off = o; el.style.setProperty('--off', o); } });
+  const end = e => { if (!d || d.id !== e.pointerId) return; d = null; el.classList.remove('dragging'); renderPvt(); };
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+}
+pvtBox.addEventListener('click', e => {
+  const m = e.target.closest('[data-mv]');
+  if (m && G.step === 'pvt'){ const r = G.pv.rows[+m.dataset.r], n = G.pv.ic + G.pv.fc; r.off = clamp(r.off + +m.dataset.mv, 0, n - r.len); renderPvt(); const again = pvtBox.querySelector(`[data-mv="${m.dataset.mv}"][data-r="${m.dataset.r}"]`); if (again) again.focus({preventScroll:true}); return; }
+  const h = e.target.closest('[data-col]'); if (h) pickCol(+h.dataset.col);
+});
+function checkPvt(){
+  const pv = G.pv, bad = pv.rows.filter(r => r.off !== r.want);
+  pv.rows.forEach(r => { r.ok = r.off === r.want; });
+  if (!bad.length){ G.step = 'pvtcol'; G.fails = 0; G.hintOpen = false; setFeedback('ok', '<span>Komma unter Komma: Jetzt stehen gleiche Stellenwerte untereinander. Leere Stellen hinter dem Komma kannst du dir mit 0 gefüllt denken.</span>'); render(false); return; }
+  G.errors++; G.fails++; addMis('align');
+  const right = bad.some(r => r.off === pv.ic + pv.fc - r.len);
+  fail(`${listDE(bad.map(r => dH(r.s)))} ${bad.length > 1 ? 'stehen' : 'steht'} noch nicht richtig.${right ? ' Bei natürlichen Zahlen schreibt man rechtsbündig. Bei Dezimalbrüchen gilt: Komma unter Komma.' : ''} Schiebe ${bad.length > 1 ? 'die Zahlen' : 'die Zahl'}, bis das Komma auf der roten Kommalinie liegt. Dann stehen die Einer in der Spalte E.`);
+  render(false);
+}
+function pickCol(c){
+  if (G.step !== 'pvtcol') return;
+  const pv = G.pv, d = firstDiff(G.A, G.B), want = pv.ic - 1 - d.p;
+  if (c === want){ pv.col = c; pv.bad = null; G.step = 'cmp'; G.fails = 0; G.hintOpen = false; setFeedback('ok', `<span>Richtig: In der Spalte ${pl(d.p)} unterscheiden sich die Ziffern zuerst. Die Stellen weiter rechts musst du nicht mehr vergleichen. Setze jetzt das Zeichen.</span>`); render(false); return; }
+  G.errors++; G.fails++; pv.bad = c; addMis('dstelle');
+  const p = pv.ic - 1 - c, x = digitAt(dparts(G.A), p);
+  fail(c < want ? `In der Spalte ${pl(p)} steht bei beiden Zahlen ${x === 0 ? 'eine 0 (oder nichts)' : 'eine ' + x}. Hier entscheidet sich noch nichts. Gehe eine Spalte weiter nach rechts.` : 'Weiter links gibt es schon eine Spalte mit verschiedenen Ziffern. Beginne beim größten Stellenwert und gehe Spalte für Spalte nach rechts.');
+  render(false);
+}
+function pvtHints(){
+  const pv = G.pv;
+  if (G.step === 'pvt'){ const r = pv.rows.find(x => x.off !== x.want) || pv.rows[0];
+    return ['Bei Dezimalbrüchen schreibt man Komma unter Komma. Die Einer stehen immer in der Spalte E.', 'Schiebe jede Zahl mit ◀ ▶ oder mit dem Finger, bis ihr Komma genau auf der roten Kommalinie liegt.', `Bei ${dH(r.s)} gehört die ${r.ip[r.ip.length - 1]} vor dem Komma in die Spalte E, die ${r.fr[0]} nach dem Komma in die Spalte z.`]; }
+  const d = firstDiff(G.A, G.B);
+  return ['Vergleiche von links nach rechts, beginnend beim größten Stellenwert.', 'Gehe Spalte für Spalte: Sind die Ziffern gleich, gehe eine Spalte weiter nach rechts. Leere Stellen zählen als 0.', `Die erste Spalte mit verschiedenen Ziffern ist ${pl(d.p)} (${PLACE_K[String(d.p)]}).`];
+}
+
+/* ---------- Lupe an der Zahlengeraden ---------- */
+const zst = $('zstage'), zsvg = $('zsvg'), zflags = $('zflags');
+const onTicks = d => G.cards.every(c => (c.f.num * 10 ** d) % c.f.den === 0);
+function setupZoom(t){
+  G.cards = t.c.map((s, i) => ({id:i, s, f:P(s), tick:null, locked:false, wrong:0, row:0, tier:1}));
+  const d0 = t.d0 != null ? t.d0 : 1, minV = Math.min(...G.cards.map(c => valOf(c.f)));
+  G.zm = {d:d0, lo:d0 === 0 ? 0 : Math.floor(minV) * 10, hist:[], bad:null, rows:1};
+  shuffle(G.cards.slice()).forEach(c => { c.slot = document.createElement('div'); c.slot.className = 'slot'; c.el = makeZCard(c); c.slot.appendChild(c.el); tray.appendChild(c.slot); });
+  G.step = onTicks(d0) ? 'zplace' : 'zoom';
+  requestAnimationFrame(() => { G.cards.forEach(c => { c.w = c.el.offsetWidth || 70; }); });
+}
+const zLab = (n, d) => n % 10 ** d === 0 ? intLab(n / 10 ** d) : scaledStr(n, d);
+const zX = i => G.zm.x0 + i * (G.zm.x1 - G.zm.x0) / 10;
+function drawZoom(fresh){
+  const z = G.zm, W = zst.clientWidth || 600, x0 = 40, x1 = W - 46, sx = i => x0 + (x1 - x0) * i / 10;
+  z.x0 = x0; z.x1 = x1; z.W = W;
+  let s = '', y = 6;
+  z.hist.slice(-2).forEach((h, k, arr) => {
+    const yl = y + 30, next = k === arr.length - 1 ? 'cur' : 'hist';
+    s += `<text class="lab zs" x="${x0}" y="${yl - 14}" text-anchor="middle">${zLab(h.lo, h.d)}</text><text class="lab zs" x="${x1}" y="${yl - 14}" text-anchor="middle">${zLab(h.lo + 10, h.d)}</text>`;
+    s += `<rect class="zsel" x="${sx(h.j)}" y="${yl - 10}" width="${(x1 - x0) / 10}" height="20" rx="3"/>`;
+    s += `<line class="axis thin" x1="${x0 - 8}" y1="${yl}" x2="${x1 + 8}" y2="${yl}"/>`;
+    for (let i = 0; i <= 10; i++) s += `<line class="tick thin" x1="${sx(i)}" y1="${yl - (i % 5 ? 6 : 9)}" x2="${sx(i)}" y2="${yl + (i % 5 ? 6 : 9)}"/>`;
+    const ny = y + 92 + (next === 'cur' ? 12 : 0);
+    s += `<polygon class="ztrap" points="${sx(h.j)},${yl + 10} ${sx(h.j + 1)},${yl + 10} ${x1},${ny} ${x0},${ny}"/>`;
+    s += `<text class="lab zx" x="${(sx(h.j) + sx(h.j + 1)) / 2}" y="${yl + 30}" text-anchor="middle">×10</text>`;
+    y += 92;
+  });
+  const base = y + 52; z.base = base;
+  const segW = (x1 - x0) / 10, every = segW >= 70 ? 1 : segW >= 36 ? 2 : 5;
+  if (G.step === 'zoom') for (let j = 0; j < 10; j++) s += `<rect class="zseg ${j % 2 ? 'b' : 'a'}${z.bad === j ? ' bad' : ''}" data-zj="${j}" x="${sx(j) + 1}" y="${base - 17}" width="${segW - 2}" height="34" rx="6"><title>Abschnitt von ${zLab(z.lo + j, z.d)} bis ${zLab(z.lo + j + 1, z.d)}</title></rect>`;
+  if (segW >= 50 && G.step === 'zoom') for (let i = 0; i < 100; i++) if (i % 10) s += `<line class="tick fine" x1="${x0 + (x1 - x0) * i / 100}" y1="${base - 4}" x2="${x0 + (x1 - x0) * i / 100}" y2="${base + 4}"/>`;
+  s += `<line class="axis" x1="${x0 - 14}" y1="${base}" x2="${x1 + 20}" y2="${base}"/><path class="arrow" d="M${x1 + 34} ${base}l-15 -8v16z"/>`;
+  for (let i = 0; i <= 10; i++){
+    const h = i % 10 === 0 ? 17 : i % 5 === 0 ? 14 : 10;
+    s += `<line class="tick ${i % 10 ? 'sub' : 'int'}" x1="${sx(i)}" y1="${base - h}" x2="${sx(i)}" y2="${base + h}"/>`;
+    if (i % every === 0) s += `<text class="lab zl" x="${sx(i)}" y="${base - 26}" text-anchor="middle">${zLab(z.lo + i, z.d)}</text>`;
+  }
+  const H = base + STEM + Math.max(1, z.rows) * ROW_H + 10; z.H = H;
+  zst.style.height = H + 'px';
+  zsvg.setAttribute('viewBox', `0 0 ${W} ${H}`); zsvg.setAttribute('width', W); zsvg.setAttribute('height', H);
+  zsvg.innerHTML = s; zsvg.classList.toggle('fresh', !!fresh);
+}
+function layoutZ(){
+  const z = G.zm, placed = G.cards.filter(c => c.tick !== null).sort((p, q) => p.tick - q.tick || p.id - q.id), last = [];
+  placed.forEach(c => { const x = zX(c.tick), w = c.w || 70; let r = 0; while (last[r] !== undefined && x - w / 2 < last[r] + 6) r++; last[r] = x + w / 2; c.row = r; });
+  if (last.length > z.rows){ z.rows = last.length; drawZoom(false); }
+  placed.forEach(c => {
+    const x = zX(c.tick), w = c.w || 70;
+    c.el.style.left = (x - w / 2).toFixed(1) + 'px'; c.el.style.top = (z.base + STEM + c.row * ROW_H) + 'px';
+    c.el.classList.add('down'); c.el.style.setProperty('--stem', (STEM + c.row * ROW_H - 2) + 'px'); c.el.style.zIndex = String(30 - c.row);
+  });
+}
+function makeZCard(c){
+  const el = document.createElement('button');
+  el.type = 'button'; el.className = 'card idle'; el.innerHTML = numH(c.f); el.setAttribute('aria-label', 'Karte ' + plain(c.f));
+  let d = null;
+  el.addEventListener('pointerdown', e => {
+    if (e.button) return;
+    if (G.step === 'zoom'){ setFeedback('info', '<span>Erst vergrößern, dann einordnen: Tippe auf der Zahlengeraden den Abschnitt an, in dem alle Zahlen liegen.</span>'); return; }
+    if (G.step !== 'zplace' || c.locked) return;
+    e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (er){}
+    d = {id:e.pointerId, sx:e.clientX, sy:e.clientY, moved:false, snap:null, rect:el.getBoundingClientRect(), lift:e.pointerType === 'touch' ? 38 : 0};
+  });
+  el.addEventListener('pointermove', e => {
+    if (!d || d.id !== e.pointerId) return;
+    const dx = e.clientX - d.sx, dy = e.clientY - d.sy;
+    if (!d.moved){ if (Math.abs(dx) + Math.abs(dy) < 8) return; d.moved = true; el.classList.add('dragging'); el.classList.remove('missed'); }
+    const sr = zst.getBoundingClientRect(), cx = d.rect.left + d.rect.width / 2 + dx, cy = e.clientY - d.lift, z = G.zm;
+    const inside = cy > sr.top && cy < sr.bottom + 40 && cx > sr.left + z.x0 - 44 && cx < sr.left + z.x1 + 44;
+    let tx = dx, ty = dy - d.lift;
+    if (inside){ const i = clamp(Math.round((cx - sr.left - z.x0) / ((z.x1 - z.x0) / 10)), 0, 10); tx += sr.left + zX(i) - cx; d.snap = i; } else d.snap = null;
+    el.style.transform = `translate(${tx}px,${ty}px)`;
+  });
+  const end = (e, cancel) => {
+    if (!d || d.id !== e.pointerId) return;
+    const dd = d; d = null; el.classList.remove('dragging'); el.style.transform = '';
+    if (!dd.moved){ if (!cancel) select(G.selected === c ? null : c); return; }
+    if (cancel) return;
+    if (dd.snap !== null) zPlace(c, dd.snap); else zTray(c);
+    select(null);
+  };
+  el.addEventListener('pointerup', e => end(e, false)); el.addEventListener('pointercancel', e => end(e, true));
+  el.addEventListener('click', () => { if (G.step === 'pick') pickCard(c); });
+  el.addEventListener('keydown', e => {
+    if (G.step !== 'zplace' || c.locked) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ e.preventDefault(); const k = e.key === 'ArrowRight' ? 1 : -1; zPlace(c, c.tick === null ? (k > 0 ? 0 : 10) : clamp(c.tick + k, 0, 10)); el.focus(); }
+  });
+  return el;
+}
+function zPlace(c, i){
+  if (c.tick === null){ zflags.appendChild(c.el); c.el.classList.add('placed'); }
+  c.tick = i; c.el.classList.remove('missed'); layoutZ(); updateMain();
+  tray.hidden = !G.cards.some(o => o.tick === null);
+  c.el.classList.remove('pop'); void c.el.offsetWidth; c.el.classList.add('pop');
+}
+function zTray(c){
+  c.tick = null; c.el.classList.remove('placed', 'pop', 'down'); c.el.style.left = ''; c.el.style.top = ''; c.el.style.zIndex = ''; c.el.style.removeProperty('--stem');
+  c.slot.appendChild(c.el); tray.hidden = false; layoutZ(); updateMain();
+}
+zst.addEventListener('click', e => {
+  const seg = e.target.closest('[data-zj]'); if (seg){ zoomTap(+seg.dataset.zj); return; }
+  if (G.step !== 'zplace' || e.target.closest('.card')) return;
+  const c = G.selected;
+  if (!c || c.locked){ setFeedback('info', '<span>Tippe zuerst eine Karte an. Tippe danach auf die Stelle, an die sie gehört.</span>'); return; }
+  const sr = zst.getBoundingClientRect(), z = G.zm;
+  zPlace(c, clamp(Math.round((e.clientX - sr.left - z.x0) / ((z.x1 - z.x0) / 10)), 0, 10)); select(null);
+});
+function zoomTap(j){
+  if (G.step !== 'zoom') return;
+  const z = G.zm, P10 = 10 ** z.d;
+  const out = G.cards.filter(c => { const N = c.f.num * P10; return N < (z.lo + j) * c.f.den || N > (z.lo + j + 1) * c.f.den; });
+  if (!out.length){
+    z.hist.push({d:z.d, lo:z.lo, j}); z.lo = (z.lo + j) * 10; z.d++; z.bad = null; G.fails = 0; G.hintOpen = false;
+    const unitH = dH(scaledStr(1, z.d));
+    if (onTicks(z.d)){ G.step = 'zplace'; setFeedback('ok', `<span>Zehnfach vergrößert: Ein Abschnitt ist jetzt ${unitH} lang. Jetzt landet jede Zahl genau auf einem Strich. Ziehe die Karten auf die Zahlengerade.</span>`); }
+    else setFeedback('ok', `<span>Gut, alle Zahlen liegen in diesem Abschnitt. Ein Abschnitt ist jetzt ${unitH} lang. Noch landen nicht alle Zahlen auf einem Strich: Vergrößere noch einmal.</span>`);
+    render(true); return;
+  }
+  G.errors++; G.fails++; z.bad = j; addMis('lupe');
+  const onT = c => (c.f.num * P10) % c.f.den === 0;
+  const c = out.find(o => !onT(o)) || out[0], k = Math.floor(c.f.num * P10 / c.f.den), dig = c.f.num > 0 ? ` ${dH(c.s)} hat ${digitAt(dparts(c.f), -z.d)} ${pl(-z.d)}.` : '';
+  fail(`${dH(c.s)} liegt nicht in diesem Abschnitt, ${onT(c) ? 'sondern genau auf dem Strich ' + dH(zLab(k, z.d)) : 'sondern zwischen ' + dH(zLab(k, z.d)) + ' und ' + dH(zLab(k + 1, z.d))}.${dig} Tippe den Abschnitt an, in dem ${G.cards.length === 2 ? 'beide Zahlen' : 'alle Zahlen'} liegen.`);
+  render(false);
+}
+function checkZPlace(){
+  const z = G.zm, wrong = []; select(null);
+  G.cards.forEach(c => { if (c.locked) return; const tg = c.f.num * 10 ** z.d / c.f.den - z.lo;
+    if (c.tick === tg){ c.locked = true; c.el.classList.add('locked', 'idle'); } else wrong.push({c, dir:tg > c.tick ? 'weiter rechts' : 'weiter links'}); });
+  if (!wrong.length){ G.step = G.t.then === 'cmp' ? 'cmp' : 'pick'; G.fails = 0; G.hintOpen = false; setFeedback('ok', '<span>Alle Zahlen sitzen auf ihrem Strich.</span>'); render(false); return; }
+  G.errors += wrong.length; G.fails++;
+  wrong.forEach(w => { addMis('place'); w.c.wrong++; zTray(w.c); w.c.el.classList.add('missed'); w.c.el.classList.remove('shake'); void w.c.el.offsetWidth; w.c.el.classList.add('shake'); });
+  fail(`${listDE(wrong.map(w => dH(w.c.s) + ' liegt ' + w.dir))}. Ein Abschnitt ist ${dH(scaledStr(1, z.d))} lang. Zähle vom linken Rand ${dH(zLab(z.lo, z.d))} aus.`);
+  render(false);
+}
+function zoomHints(){
+  const z = G.zm;
+  if (G.step === 'zoom'){ const c = G.cards[0], k = Math.floor(c.f.num * 10 ** z.d / c.f.den), j = G.cards.every(o => { const N = o.f.num * 10 ** z.d; return N >= k * o.f.den && N <= (k + 1) * o.f.den; }) ? k : k - 1;
+    return [`Ein Abschnitt ist gerade ${dH(scaledStr(1, z.d))} lang. Schau bei jeder Zahl auf die ${pl(-z.d)}.`, `${dH(c.s)} liegt zwischen ${dH(zLab(k, z.d))} und ${dH(zLab(k + 1, z.d))}. Liegen die anderen Zahlen im selben Abschnitt?`, `Tippe den Abschnitt von ${dH(zLab(j, z.d))} bis ${dH(zLab(j + 1, z.d))} an.`]; }
+  const c = G.cards.find(o => !o.locked) || G.cards[0], tg = c.f.num * 10 ** z.d / c.f.den - z.lo;
+  return [`Ein Abschnitt ist ${dH(scaledStr(1, z.d))} lang. Die Striche sind beschriftet.`, `${dH(c.s)}: Schau auf die letzte Ziffer. Sie steht an der ${pl(-z.d)}stelle.`, `${dH(c.s)} gehört auf den ${tg}. Strich nach ${dH(zLab(z.lo, z.d))}.`];
+}
+
+/* ---------- Ziffern einsetzen ---------- */
+const digBox = $('digBox');
+const fillDig = (tpl, d) => tpl.replace('#', d);
+function digValid(t){ const out = []; for (let d = 0; d <= 9; d++){ const L = P(fillDig(t.l, d)), R = P(fillDig(t.r, d)); if (cmpOf(L, R) === t.rel) out.push(d); } return out; }
+const tplH = s => `<span class="num dec">${s.replace('-', '−').replace('#', BOX)}</span>`;
+function renderDig(){
+  const t = G.t, g = G.dg, done = G.step === 'done';
+  digBox.innerHTML = `<div class="cmp-row dig-st">${tplH(t.l)}<span>${signH(t.rel)}</span>${tplH(t.r)}</div><p class="digq">Tippe alle Ziffern an, die für ${BOX} passen:</p><div class="digpick" role="group" aria-label="Ziffern">${[0,1,2,3,4,5,6,7,8,9].map(d => `<button type="button" class="digb${g.sel.has(d) ? ' on' : ''}${g.bad.has(d) ? ' bad' : ''}${done && g.want.includes(d) ? ' ok' : ''}" data-dg="${d}" aria-pressed="${g.sel.has(d)}" ${done ? 'disabled' : ''}>${d}</button>`).join('')}</div>`;
+}
+digBox.addEventListener('click', e => { const b = e.target.closest('[data-dg]'); if (!b || G.step !== 'dig') return; const d = +b.dataset.dg, g = G.dg; if (g.sel.has(d)) g.sel.delete(d); else g.sel.add(d); g.bad.delete(d); renderDig(); updateMain(); });
+function digEx(d){ const t = G.t, L = P(fillDig(t.l, d)), R = P(fillDig(t.r, d)); return `${numH(L)} ${signH(cmpOf(L, R))} ${numH(R)}`; }
+function checkDig(){
+  const g = G.dg, miss = g.want.filter(d => !g.sel.has(d)), extra = [...g.sel].filter(d => !g.want.includes(d)).sort((a, b) => a - b);
+  if (!miss.length && !extra.length) return finish(false);
+  G.errors++; G.fails++; addMis('digits');
+  const parts = [];
+  if (extra.length) parts.push(`${extra.length === 1 ? 'Die Ziffer ' + extra[0] + ' passt' : 'Die Ziffern ' + listDE(extra.map(String)) + ' passen'} nicht: ${digEx(extra[0])}.`);
+  if (miss.length) parts.push(`Es ${miss.length === 1 ? 'fehlt noch eine Ziffer' : 'fehlen noch ' + miss.length + ' Ziffern'}. Probiere der Reihe nach alle Ziffern von 0 bis 9 aus.${miss.length === 1 ? '' : ''}`);
+  g.bad = new Set(extra);
+  fail(parts.join(' ') + ' Vergleiche stellenweise von links.');
+  renderDig();
+}
+function digHints(){
+  const t = G.t, g = G.dg, ok = g.want, no = [0,1,2,3,4,5,6,7,8,9].filter(d => !ok.includes(d));
+  return [`Setze eine Ziffer für ${BOX} ein und vergleiche die beiden Zahlen stellenweise von links.`, `Probiere zum Beispiel ${ok.length ? ok[0] : 0}: ${digEx(ok.length ? ok[0] : 0)}${no.length ? `. Und ${no[0]}: ${digEx(no[0])}` : ''}.`, `Passend ${ok.length === 1 ? 'ist' : 'sind'}: ${listDE(ok.map(String))}.`];
+}
+
+/* ---------- Druckfehlerteufel ---------- */
+const oddBox = $('oddBox');
+function oddCands(t){ const fs = t.c.map(P), ok = a => a.every((f, i) => i === 0 || cmpOf(a[i - 1], f) === t.rel); return fs.map((_, i) => i).filter(i => ok(fs.filter((_, k) => k !== i))); }
+function renderOdd(){
+  const t = G.t, o = G.od, done = G.step === 'done';
+  const chain = t.c.map((s, i) => (i ? `<span class="osign">${signH(t.rel)}</span>` : '') + `<button type="button" class="ochip odd${o.pick === i ? ' ok' : ''}${o.bad.includes(i) ? ' bad' : ''}" data-oi="${i}" ${done ? 'disabled' : ''}>${dH(s)}</button>`).join('');
+  let fix = '';
+  if (done){ const fs = t.c.map(P).sort((a, b) => t.rel === '<' ? valOf(a) - valOf(b) : valOf(b) - valOf(a)); fix = `<p class="oddfix"><b>Richtig geordnet:</b> ${fs.map(numH).join(` ${signH(t.rel)} `)}</p>`; }
+  oddBox.innerHTML = `<div class="chain">${chain}</div>${fix}`;
+}
+oddBox.addEventListener('click', e => {
+  const b = e.target.closest('[data-oi]'); if (!b || G.step !== 'odd') return;
+  const i = +b.dataset.oi, t = G.t, o = G.od;
+  if (o.cands.includes(i)){ o.pick = i; return finish(false); }
+  G.errors++; G.fails++; o.bad.push(i);
+  const rest = t.c.map(P).filter((_, k) => k !== i); let A = rest[0], B = rest[1];
+  for (let k = 1; k < rest.length; k++) if (cmpOf(rest[k - 1], rest[k]) !== t.rel){ A = rest[k - 1]; B = rest[k]; break; }
+  addMis(decDiag(A, B, t.rel) || 'dstelle');
+  fail(`Ohne ${dH(t.c[i])} stimmt die Kette immer noch nicht: ${numH(A)} ${signH(t.rel)} ${numH(B)} ist falsch. ${stelleTxt(A, B)}`);
+  renderOdd();
+});
+function oddHints(){
+  const t = G.t, fs = t.c.map(P); let k = 1; for (; k < fs.length; k++) if (cmpOf(fs[k - 1], fs[k]) !== t.rel) break;
+  return [`Prüfe jedes Paar nebeneinander: Stimmt das Zeichen ${signH(t.rel)}?`, k < fs.length ? `${numH(fs[k - 1])} ${signH(t.rel)} ${numH(fs[k])} stimmt nicht. Eine dieser beiden Zahlen ist falsch eingeordnet.` : '', `Falsch eingeordnet ist ${listDE(G.od.cands.map(i => dH(t.c[i])))}.`].filter(Boolean);
+}
+
+/* ---------- Denkfehler erklären ---------- */
+const mcBox = $('mcBox');
+function renderMc(){
+  const t = G.t, m = G.mc, past = G.step !== 'mc';
+  mcBox.innerHTML = `<p class="mcq">${mt(t.q)}</p><div class="mcopts">${m.opts.map(o => `<button type="button" class="mcopt${m.tried[o.i] === 'ok' || (past && o.ok) ? ' ok' : m.tried[o.i] === 'bad' ? ' bad' : ''}" data-mc="${o.i}" ${past || m.tried[o.i] ? 'disabled' : ''}>${mt(o.t)}</button>`).join('')}</div>`;
+}
+mcBox.addEventListener('click', e => {
+  const b = e.target.closest('[data-mc]'); if (!b || G.step !== 'mc') return;
+  const t = G.t, o = t.o[+b.dataset.mc];
+  if (o.ok){ G.mc.tried[+b.dataset.mc] = 'ok'; G.step = 'cmp'; G.fails = 0; G.hintOpen = false; setFeedback('ok', `<span>Genau, das ist der Denkfehler. ${t.fix} Setze jetzt das richtige Zeichen.</span>`); render(false); return; }
+  G.mc.tried[+b.dataset.mc] = 'bad'; G.errors++; G.fails++; addMis('fehler');
+  fail(`Das passt nicht: ${o.why}`); render(false);
+});
+function mcHints(){ const t = G.t, ok = t.o.find(o => o.ok); return ['Überlege für jede Antwort: Welches Ergebnis käme mit diesem Gedanken heraus? Passt es zu der Aussage?', 'Typische Denkfehler: Ziffern hinter dem Komma wie natürliche Zahlen lesen, „mehr Stellen = kleiner“, Beträge statt Lage vergleichen.', `Richtig ist: ${ok.t}`]; }
+
+/* ---------- Ziffernkärtchen ---------- */
+const ziffBox = $('ziffBox');
+function perms(a){ if (a.length < 2) return [a]; const out = []; a.forEach((x, i) => perms(a.slice(0, i).concat(a.slice(i + 1))).forEach(p => out.push([x].concat(p)))); return out; }
+function ziffValid(str){
+  if (str[0] === ',' || str[str.length - 1] === ',') return 'Das Komma darf nicht ganz vorne oder ganz hinten stehen.';
+  if (str[0] === '0' && str[1] !== ',') return 'Eine Zahl beginnt nicht mit 0, außer direkt vor dem Komma wie bei 0,5.';
+  return '';
+}
+function ziffOk(t, f){ const v = valOf(f);
+  if (t.goal === 'between') return v > valOf(P(t.lo)) && v < valOf(P(t.hi));
+  return v === G.zf.best;
+}
+function setupZiff(t){
+  const toks = t.d.concat([',']);
+  G.zf = {items:shuffle(toks.map((x, i) => ({id:i, x}))), chain:toks.map(() => null), ok:false};
+  const vals = uniq(perms(toks).map(p => p.join('')).filter(s => !ziffValid(s))).map(s => ({s, v:valOf(P(s))}));
+  let best = null;
+  if (t.goal === 'min') best = vals.reduce((m, x) => x.v < m.v ? x : m);
+  else if (t.goal === 'gt1') best = vals.filter(x => x.v > 1).reduce((m, x) => x.v < m.v ? x : m);
+  else if (t.goal === 'near'){ const T = valOf(P(t.target)); best = vals.reduce((m, x) => Math.abs(x.v - T) < Math.abs(m.v - T) ? x : m); }
+  else best = vals.find(x => x.v > valOf(P(t.lo)) && x.v < valOf(P(t.hi)));
+  G.zf.best = best.v; G.zf.bestS = best.s;
+}
+function ziffTask(t){ return t.goal === 'min' ? 'Lege die kleinste Zahl, die möglich ist.' : t.goal === 'gt1' ? 'Lege die kleinste Zahl, die größer als 1 ist.' : t.goal === 'near' ? `Lege die Zahl, die möglichst nahe an ${dH(t.target)} liegt.` : `Lege eine Zahl, die zwischen ${dH(t.lo)} und ${dH(t.hi)} liegt.`; }
+function renderZiff(){
+  const z = G.zf, done = G.step === 'done';
+  const chain = z.chain.map((id, k) => { const it = id === null ? null : z.items.find(x => x.id === id); return `<button type="button" class="oslot zslot${done ? ' ok' : ''}${it ? ' filled' : ''}${it && it.x === ',' ? ' comma' : ''}" data-zk="${k}" aria-label="Platz ${k + 1}${it ? ': ' + (it.x === ',' ? 'Komma' : it.x) : ', leer'}">${it ? it.x : ''}</button>`; }).join('');
+  const used = z.chain.filter(x => x !== null);
+  ziffBox.innerHTML = `<p class="mcq">${ziffTask(G.t)} Verwende alle Kärtchen.</p><div class="chain">${chain}</div>` + (done ? '' : `<div class="opool">${z.items.filter(x => !used.includes(x.id)).map(x => `<button type="button" class="ochip zchip${x.x === ',' ? ' comma' : ''}" data-zid="${x.id}" aria-label="${x.x === ',' ? 'Komma' : 'Ziffer ' + x.x}">${x.x}</button>`).join('')}</div>`);
+  if (done) return;
+  ziffBox.querySelectorAll('.zchip').forEach(el => {
+    const id = +el.dataset.zid;
+    dnd(el, {can:() => G.step === 'ziff', tap:() => putZiff(id, z.chain.findIndex(x => x === null)),
+      move:(x, y) => { ziffBox.querySelectorAll('.zslot').forEach(g => g.classList.remove('hover')); const g = under(x, y, '.zslot'); if (g) g.classList.add('hover'); },
+      drop:(x, y) => { const g = under(x, y, '.zslot'); putZiff(id, g ? +g.dataset.zk : -1); }});
+  });
+}
+function putZiff(id, k){ const z = G.zf; if (k >= 0){ const prev = z.chain.indexOf(id); if (prev >= 0) z.chain[prev] = null; z.chain[k] = id; } renderZiff(); updateMain(); }
+ziffBox.addEventListener('click', e => { const b = e.target.closest('.zslot'); if (!b || G.step !== 'ziff') return; const k = +b.dataset.zk; if (G.zf.chain[k] === null) return; G.zf.chain[k] = null; renderZiff(); updateMain(); });
+function checkZiff(){
+  const z = G.zf, t = G.t, str = z.chain.map(id => z.items.find(x => x.id === id).x).join(''), bad = ziffValid(str);
+  if (!bad && ziffOk(t, P(str))){ z.mine = str; return finish(false); }
+  G.errors++; G.fails++;
+  let msg = bad;
+  if (!bad){ const f = P(str), v = valOf(f);
+    if (t.goal === 'min') msg = `${dH(str)} ist noch nicht die kleinste Zahl. Je weiter links eine Ziffer steht, desto mehr ist sie wert. Setze das Komma möglichst weit nach links und kleine Ziffern nach vorne.`;
+    else if (t.goal === 'gt1') msg = v <= 1 ? `${dH(str)} ist nicht größer als 1.` : `${dH(str)} ist größer als 1, aber es geht noch kleiner. Vor dem Komma soll möglichst wenig stehen.`;
+    else if (t.goal === 'near') msg = `${dH(str)} ist noch nicht die Zahl, die am nächsten an ${dH(t.target)} liegt. Welche Ziffer gehört vor das Komma?`;
+    else { const lo = P(t.lo), hi = P(t.hi); msg = v <= valOf(lo) ? `${dH(str)} ist nicht größer als ${dH(t.lo)}. ${stelleTxt(f, lo)}` : `${dH(str)} ist nicht kleiner als ${dH(t.hi)}.`; }
+    addMis('dstelle');
+  }
+  fail(msg + ' Tippe Kärtchen in der Reihe an, um sie zurückzulegen.');
+  z.chain = z.chain.map(() => null); renderZiff(); updateMain();
+}
+function ziffHints(){ const t = G.t; return ['Je weiter links eine Ziffer steht, desto größer ist ihr Stellenwert.', t.goal === 'min' ? 'Für eine kleine Zahl: Vor das Komma kommt nur die 0, dahinter die Ziffern von klein nach groß.' : t.goal === 'between' ? `Die Zahl muss mit ${dH(t.lo).replace(/\d$/, '')}… beginnen. Überlege, welche Ziffern vor und direkt nach das Komma gehören.` : 'Überlege zuerst, welche Ziffer vor das Komma gehört.', `Zum Beispiel passt ${dH(G.zf.bestS)}.`]; }
+
+/* ---------- Rechnen mit Dezimalbrüchen ---------- */
+const DEC_SLOTS = {dbet:['x'], dmid:['x'], dez:['z', 'x']};
+const isDecSlot = s => s && s.n === 'x' && G.calc && DEC_SLOTS[G.calc.t];
+function decMini(A, B, X){
+  const a = valOf(A), b = valOf(B), m = (b - a) * 0.5, lo = a - m, hi = b + m, W = 520, x0 = 30, x1 = 490, sx = v => x0 + (v - lo) / (hi - lo) * (x1 - x0);
+  let s = `<line class="axis" x1="${x0 - 10}" y1="60" x2="${x1 + 14}" y2="60"/>`;
+  for (let i = 1; i < 10; i++){ const x = sx(a + (b - a) * i / 10); s += `<line class="tick" x1="${x}" y1="${i === 5 ? 50 : 54}" x2="${x}" y2="${i === 5 ? 70 : 66}"/>`; }
+  [A, B].forEach(f => { const x = sx(valOf(f)); s += `<line class="sg" x1="${x}" y1="42" x2="${x}" y2="78"/><text x="${x}" y="30" text-anchor="middle">${decStr(f) || plain(f)}</text>`; });
+  if (X){ const v = valOf(X), ok = G.step === 'done'; if (v >= lo && v <= hi) s += `<circle cx="${sx(v)}" cy="60" r="10" class="${ok ? 'ptok' : 'ptbad'}"/><text class="${ok ? 't1' : 't2'}" x="${sx(v)}" y="118" text-anchor="middle">${decStr(X) || plain(X)}</text>`;
+    else s += `<text class="t2" x="${v < lo ? x0 : x1}" y="118" text-anchor="${v < lo ? 'start' : 'end'}">${decStr(X) || plain(X)} liegt weiter ${v < lo ? 'links' : 'rechts'}</text>`; }
+  return `<svg class="mini" viewBox="0 0 ${W} 128" role="img" aria-label="Zahlengerade mit ${plain(A)}, ${plain(B)}${X ? ' und deiner Zahl ' + plain(X) : ''}">${s}</svg>`;
+}
+function renderDecCalc(){
+  const c = G.calc, A = G.A, B = G.B;
+  if (c.t === 'dbet') return `<div class="calc-line">${numH(A)}<span>&lt;</span>${slotB(0)}<span>&lt;</span>${numH(B)}</div>${G.showPt ? decMini(A, B, G.X) : ''}`;
+  if (c.t === 'dmid') return `<div class="calc-line"><span class="lbl">Genau in der Mitte zwischen ${numH(A)} und ${numH(B)} liegt:</span>${slotB(0)}</div>${G.showPt ? decMini(A, B, G.X) : ''}`;
+  const z = zehner(A), sg = z.neg ? '<span>−</span>' : '';
+  return `<div class="calc-line"><span class="pair">${numH(A)}<span>=</span>${sg}${z.W ? `<span>${z.W}</span>` : ''}${Fx(slotB(0), gv(z.P10))}<span>=</span>${slotB(1)}</span></div><p class="calc-note">Bringe den Nenner auf 10, 100 oder 1000 und schreibe dann als Dezimalbruch.</p>`;
+}
+function checkDecCalc(){
+  const c = G.calc, A = G.A, B = G.B;
+  if (c.t === 'dez'){
+    const z = zehner(A), v0 = parseInt(G.sl[0].val, 10);
+    if (G.sl[0].state !== 'ok'){
+      if (v0 !== z.z) return calcFail([0], `${z.red ? 'Kürze zuerst: ' + numH({num:z.r, den:z.d}) + '. Dann: ' : ''}Der Nenner soll ${z.P10} werden. ${z.d} · ${z.k} = ${z.P10}, also erweiterst du mit ${z.k}: ${z.r} · ${z.k} = ${z.z}.`, 'erw');
+      G.sl[0].state = 'ok';
+    }
+    const X = parseNum(G.sl[1].val), want = P(toDec(A));
+    if (!X || cmpOf(X, want) !== '='){
+      const lastP = -Math.round(Math.log10(z.P10));
+      return calcFail([1], X ? `${frH(z.z, z.P10)} sind ${z.z} ${pl(lastP)}. Die letzte Ziffer steht deshalb an der ${pl(lastP)}stelle: ${z.W ? z.W + ' ' : ''}${frH(z.z, z.P10)} = ${dH(toDec(A))}.${z.neg && X.num > 0 ? ' Denke an das Minuszeichen.' : ''}` : 'Das ist noch keine richtige Dezimalzahl. Tippe zum Beispiel 0 , 7 5.', 'conv');
+    }
+    G.sl.forEach(x => { x.state = 'ok'; });
+    G.exp = [`${zehnerH(A)}<span class="eqx">=</span>${dH(toDec(A))}`, null];
+    G.step = 'calcsign'; G.fails = 0; G.hintOpen = false;
+    setFeedback('ok', `<span>Richtig: ${numH(A)} = ${dH(toDec(A))}. Jetzt vergleichst du zwei Dezimalbrüche. Setze das Zeichen.</span>`);
+    render(false); return;
+  }
+  const X = parseNum(G.sl[0].val);
+  if (!X) return calcFail([0], 'Das ist noch keine richtige Zahl. Schreibe zum Beispiel 0,245.', null);
+  G.X = X; G.showPt = true;
+  if (c.t === 'dbet'){
+    const ca = cmpOf(X, A), cb = cmpOf(X, B);
+    if (ca === '>' && cb === '<') return finish(false);
+    let msg, code = 'between';
+    if (ca === '=' || cb === '=') msg = `${numH(X)} hat denselben Wert wie ${numH(ca === '=' ? A : B)}. Gesucht ist eine Zahl, die echt dazwischen liegt.`;
+    else if (ca === '<'){ msg = `${numH(X)} ist kleiner als ${numH(A)}. ${stelleTxt(X, A)}`; code = decDiag(X, A, '>') || code; }
+    else { msg = `${numH(X)} ist größer als ${numH(B)}. ${stelleTxt(X, B)}`; code = decDiag(X, B, '<') || code; }
+    return calcFail([0], msg + ' Der rote Punkt zeigt, wo deine Zahl liegt.', code);
+  }
+  const M = midOf(A, B);
+  if (cmpOf(X, M) === '=') return finish(false);
+  const inside = cmpOf(X, A) === '>' && cmpOf(X, B) === '<';
+  return calcFail([0], inside ? `${numH(X)} liegt zwischen ${numH(A)} und ${numH(B)}, aber nicht genau in der Mitte. Die Mitte ist von beiden Zahlen gleich weit entfernt. Der rote Punkt zeigt deine Zahl.` : `${numH(X)} liegt nicht zwischen ${numH(A)} und ${numH(B)}. Der rote Punkt zeigt, wo deine Zahl liegt.`, 'mitte');
+}
+function decCalcExplain(){
+  const c = G.calc, A = G.A, B = G.B;
+  if (c.t === 'dez'){ const a2 = P(toDec(A)), s = cmpOf(A, B); return `${numH(A)} = ${zehnerH(A)} = ${numH(a2)}. ${s === '=' ? 'Beide Zahlen sind gleich.' : stelleTxt(a2, B)} Also gilt ${numH(A)} ${signH(s)} ${numH(B)}.`; }
+  const X = G.X, k = Math.max(...[A, B, X].map(f => dparts(f).fr.length));
+  if (c.t === 'dbet') return `${dH(padDec(A, k))} &lt; ${dH(padDec(X, k))} &lt; ${dH(padDec(B, k))}. Hängt man Nullen an, sieht man es besser. Zwischen zwei Zahlen liegen immer unendlich viele weitere Zahlen.`;
+  const M = midOf(A, B), dist = {num:M.num * A.den - A.num * M.den, den:M.den * A.den};
+  return `Die Mitte ist ${numH(M)}: Bis ${numH(A)} und bis ${numH(B)} ist es jeweils ${dH(toDec(dist) || '0')}. Rechnung: (${numH(A)} + ${numH(B)}) : 2 = ${numH(M)}.`;
+}
+function decCalcHints(){
+  const c = G.calc, A = G.A, B = G.B;
+  if (c.t === 'dez'){
+    if (G.step === 'calcsign'){ const a2 = P(toDec(A)); return ['Jetzt hast du zwei Dezimalbrüche. Schreibe sie Komma unter Komma.', stelleTxt(a2, B), decCalcExplain()]; }
+    const z = zehner(A);
+    return ['Bringe den Nenner durch Erweitern oder Kürzen auf 10, 100 oder 1000. Dann kannst du die Ziffern in die Stellenwerttafel eintragen.', `${z.red ? 'Kürze zuerst zu ' + numH({num:z.r, den:z.d}) + '. ' : ''}${z.d} · ${z.k} = ${z.P10}. Erweitere also mit ${z.k}.`, `${numH(A)} = ${zehnerH(A)} = ${dH(toDec(A))}.`];
+  }
+  const k = Math.max(dparts(A).fr.length, dparts(B).fr.length) + 1;
+  if (c.t === 'dbet') return ['Stell dir die Lupe an der Zahlengeraden vor: Zwischen den beiden Zahlen liegen noch viele Striche.', `Hänge an beide Zahlen eine 0 an: ${dH(padDec(A, k))} und ${dH(padDec(B, k))}. Jetzt siehst du Zahlen dazwischen.`, `Zum Beispiel passt ${numH(midOf(A, B))}.`];
+  return ['Die Mitte ist von beiden Zahlen gleich weit entfernt.', A.num < 0 || B.num < 0 ? 'Zeichne eine Zahlengerade und markiere beide Zahlen. Suche den Punkt in der Mitte.' : `Addiere beide Zahlen und teile durch 2. Oder: Hänge eine 0 an, ${dH(padDec(A, k))} und ${dH(padDec(B, k))}, und suche die Mitte.`, `Die Mitte ist ${numH(midOf(A, B))}.`];
+}
+
 /* ================= Prüfen, Fehler, Abschluss ================= */
 function fail(msg, forceHint){
   let extra = '';
@@ -1817,6 +2551,10 @@ mainBtn.addEventListener('click', () => {
     case 'puzzle': return checkPuzzle();
     case 'calc': return checkCalc();
     case 'order': return checkOrder();
+    case 'pvt': return checkPvt();
+    case 'zplace': return checkZPlace();
+    case 'dig': return checkDig();
+    case 'ziff': return checkZiff();
   }
 });
 function finish(){
@@ -1858,7 +2596,17 @@ function explainDone(){
     return 'Alle Zahlen sitzen genau auf ihrem Strich.';
   }
   if (t.k === 'strat') return stratExplain();
-  if (t.k === 'sym') return explainPair(G.A, G.B, stratInfo(G.A, G.B).best);
+  if (t.k === 'sym') return hasDec(G.A, G.B) ? decExplain(G.A, G.B) : explainPair(G.A, G.B, stratInfo(G.A, G.B).best);
+  if (t.k === 'pvt') return `${decExplain(G.A, G.B)} Die Stellen weiter rechts musst du nicht mehr vergleichen.`;
+  if (t.k === 'mc') return decExplain(G.A, G.B);
+  if (t.k === 'zoom'){
+    if (t.then === 'cmp'){ const [A, B] = cmpPair(), s = cmpOf(A, B); return `${numH(A)} liegt weiter ${s === '<' ? 'links' : 'rechts'} als ${numH(B)}. ${decExplain(A, B)}`; }
+    const so = G.cards.slice().sort((p, q) => valOf(p.f) - valOf(q.f)); return `Der Größe nach: ${so.map(c => numH(c.f)).join(' &lt; ')}. Mit der Lupe sieht man auch die kleinen Unterschiede.`;
+  }
+  if (t.k === 'digits'){ const ok = G.dg.want, no = [0,1,2,3,4,5,6,7,8,9].filter(d => !ok.includes(d)), nb = no.find(d => ok.includes(d - 1) || ok.includes(d + 1));
+    return `Passend ${ok.length === 1 ? 'ist' : 'sind'} ${listDE(ok.map(String))}. Zum Beispiel ${digEx(ok[ok.length - 1])}${nb !== undefined ? `, aber ${digEx(nb)}` : ''}.`; }
+  if (t.k === 'odd'){ const fs = t.c.map(P).sort((p, q) => t.rel === '<' ? valOf(p) - valOf(q) : valOf(q) - valOf(p)); return `${dH(t.c[G.od.pick])} war falsch eingeordnet. Richtig: ${fs.map(numH).join(` ${signH(t.rel)} `)}.`; }
+  if (t.k === 'ziff'){ const m = G.zf.mine; return `${dH(m)} passt. ${t.goal === 'min' ? 'Die kleinste Zahl hat vor dem Komma nur die 0 und dahinter die Ziffern von klein nach groß.' : t.goal === 'gt1' ? 'Vor dem Komma steht die 1, dahinter die übrigen Ziffern von klein nach groß.' : t.goal === 'near' ? `Kein anderer Dezimalbruch aus diesen Kärtchen liegt näher an ${dH(t.target)}.` : `Es gibt noch mehr Lösungen, zum Beispiel ${dH(G.zf.bestS)}.`}`; }
   if (t.k === 'calc') return calcExplain();
   if (t.k === 'order'){ const so = G.ord.items.slice().sort((p, q) => valOf(p.f) - valOf(q.f)); return `Der Größe nach: ${so.map(x => numH(x.f)).join(' &lt; ')}.`; }
   if (t.k === 'between'){ const me = {num:G.bn, den:G.bd}, L = [G.A.den, G.B.den, G.bd].reduce(lcm, 1);
@@ -1935,7 +2683,8 @@ function getHints(){
       const n = t.k === 'double' ? G.axes[c.ax].n : G.n;
       return {title:'Tipp zur Karte', pick:open, cur:c, items:cardHints(c.f, n), tier:c.tier};
     }
-    case 'cmp': return {title:'Tipp zum Vergleichen', items: t.k === 'sym' ? ['Prüfe zuerst: Sind die Nenner gleich? Sind die Zähler gleich?', stratAdvice(G.A, G.B), explainPair(G.A, G.B, stratInfo(G.A, G.B).best)] : cmpHints()};
+    case 'cmp': if (hasDec(...cmpPair())) return {title:'Tipp zum Vergleichen', items:decCmpHints(...cmpPair())};
+      return {title:'Tipp zum Vergleichen', items: t.k === 'sym' ? ['Prüfe zuerst: Sind die Nenner gleich? Sind die Zähler gleich?', stratAdvice(G.A, G.B), explainPair(G.A, G.B, stratInfo(G.A, G.B).best)] : cmpHints()};
     case 'pick': return {title:'Tipp zum Vergleichen', items:cmpHints()};
     case 'calc': case 'calcsign': return {title:'Tipp', items:calcHints()};
     case 'order': return {title:'Tipp', items:orderHints()};
@@ -1943,6 +2692,12 @@ function getHints(){
     case 'build': return {title:'Tipp', items:betweenHints()};
     case 'sets': return {title:'Tipp', items:setsHints()};
     case 'cloze': case 'puzzle': return {title:'Tipp', items:t.hints.map(mt)};
+    case 'pvt': case 'pvtcol': return {title:'Tipp zur Stellenwerttafel', items:pvtHints()};
+    case 'zoom': case 'zplace': return {title:'Tipp zur Lupe', items:zoomHints()};
+    case 'dig': return {title:'Tipp', items:digHints()};
+    case 'odd': return {title:'Tipp', items:oddHints()};
+    case 'mc': return {title:'Tipp', items:mcHints()};
+    case 'ziff': return {title:'Tipp', items:ziffHints()};
   }
   return null;
 }
@@ -1983,11 +2738,13 @@ function renderHome(){
     const us = UNITS.filter(u => u.T === T), doneN = us.filter(unitDone).length;
     const rows = us.map(u => {
       const done = unitDone(u), b = DB.best[u.key] || 0, m = b ? medal(b) : null, tried = !done && b > 0;
-      const right = u.sich ? (done ? '<span class="okt">✓ erledigt</span>' : '<span>offen</span>')
-        : b ? `<span class="st">${star(true)}${b}/15</span>${m ? `<span class="medal ${m.cls}">${m.name}</span>` : ''}${done ? '<span class="okt">✓ geschafft</span>' : ''}` : '<span>neu</span>';
-      return `<button type="button" class="lrow${done ? ' done' : ''}${tried ? ' tried' : ''}${u.sich ? ' sich' : ''}${rec === u.key ? ' rec' : ''}" data-unit="${u.key}">${rec === u.key ? '<span class="rec-tag">Als Nächstes</span>' : ''}<span class="ln" aria-hidden="true">${done ? '✓' : u.sich ? 'S' : u.i + 1}</span><span><span class="lt">${u.sich ? 'Sicherung' : 'Level ' + (u.i + 1) + ': ' + u.L.name}</span><span class="ld">${u.sich ? 'Lückentext und Begründungspuzzle' : u.L.desc}</span><span class="ls">${right}</span></span></button>`;
+      const name = u.sich ? 'Sicherung' : u.L.name, desc = u.sich ? 'Lückentext und Begründungspuzzle' : u.L.desc;
+      const badge = u.sich ? (done ? '<span class="lb ok" aria-label="erledigt">✓</span>' : '')
+        : b ? `<span class="lb ${m ? m.cls : ''}" aria-label="${b} von 15 Sternen${m ? ', ' + m.name : ''}">${star(true)}${b}</span>` : '';
+      const lab = `${u.sich ? 'Sicherung' : 'Level ' + (u.i + 1) + ': ' + u.L.name}. ${desc}. ${done ? 'Geschafft.' : tried ? 'Angefangen.' : 'Neu.'}${b && !u.sich ? ' ' + b + ' von 15 Sternen.' : ''}`;
+      return `<button type="button" class="lrow${done ? ' done' : ''}${tried ? ' tried' : ''}${u.sich ? ' sich' : ''}${rec === u.key ? ' rec' : ''}" data-unit="${u.key}" title="${desc}" aria-label="${lab}"><span class="ln" aria-hidden="true">${done ? '✓' : u.sich ? 'S' : u.i + 1}</span><span class="lt">${name}</span>${badge}</button>`;
     }).join('');
-    return `<section class="tcol" aria-labelledby="th${T.id}"><div class="tcol-head"><span class="tn">${ti + 1}</span><h2 id="th${T.id}">${T.name}</h2></div><div class="tprog"><span>${doneN} von ${us.length} geschafft</span><span class="pbar" role="img" aria-label="${doneN} von ${us.length} geschafft"><i style="width:${Math.round(100 * doneN / us.length)}%"></i></span></div>${rows}</section>`;
+    return `<section class="tcol" aria-labelledby="th${T.id}"><div class="tcol-head"><span class="tn">${ti + 1}</span><h2 id="th${T.id}">${T.name}</h2></div><div class="tprog" role="img" aria-label="${doneN} von ${us.length} geschafft"><span class="pbar"><i style="width:${Math.round(100 * doneN / us.length)}%"></i></span><span>${doneN}/${us.length}</span></div>${rows}</section>`;
   }).join('');
 }
 home.addEventListener('click', e => {
@@ -2013,8 +2770,7 @@ function showSummary(){
   else if (rec){ const r = unit(rec); advice = `Im Menü geht es weiter mit ${r.T.name}, ${r.sich ? 'Sicherung' : 'Level ' + (r.i + 1) + ': ' + r.L.name}.`; }
   else advice = 'Du hast alle Themen geschafft. Versuche, überall Gold zu holen.';
   const btns = '<button type="button" class="btn primary" data-go="">Zurück zum Menü</button>';
-  const hf = !u.sich && u.L.heft ? `<div class="heftbox"><h2>Übung fürs Heft</h2>${u.L.heft.task.split('|').map(x => `<p>${mt(x).replace(/ {2,}/g, '&emsp;&emsp;')}</p>`).join('')}<div class="actions"><button type="button" class="btn" data-sol>Lösung zum Vergleichen zeigen</button></div><div class="sol" hidden>${u.L.heft.sol.split('|').map(x => `<p>${mt(x).replace(/ {2,}/g, '&emsp;&emsp;')}</p>`).join('')}</div></div>` : '';
-  const merk = (u.sich ? `<div class="merk">${merkText(u.T.id)}</div>` : '') + hf;
+  const merk = u.sich ? `<div class="merk">${merkText(u.T.id)}</div>` : '';
   summary.innerHTML = `<p class="where">${u.T.name}, ${u.sich ? 'Sicherung' : 'Level ' + (u.i + 1) + ': ' + u.L.name}</p><h1>${title}</h1>` +
     `<div class="total"><span class="big">${star(true)}${total} von ${max}</span>${m ? `<span class="medal ${m.cls}">${m.name}</span>` : ''}${isBest ? '<span class="medal">Neue Bestleistung</span>' : ''}${u.sich ? '<span class="medal gold">Thema gesichert</span>' : ''}</div>` +
     '<div class="per">' + G.results.map((r, i) => `<div>Aufgabe ${i + 1}<span class="stars" role="img" aria-label="${r.stars} von 3 Sternen">${stars(r.stars)}</span></div>`).join('') + '</div>' +
@@ -2025,11 +2781,10 @@ function showSummary(){
 function merkText(id){
   if (id === 'Z') return '<b>Merke:</b> Der Nenner gibt die Einteilung eines Ganzen an. Eine passende Einteilung für mehrere Brüche ist ein gemeinsames Vielfaches der Nenner.';
   if (id === 'V') return `<b>Merke:</b> Rechts ist größer. Bei gleichem Nenner entscheidet der größere Zähler, bei gleichem Zähler der kleinere Nenner. Verschiedene Nenner bringt man durch Erweitern auf den Hauptnenner: ${nh('2/3')} = ${nh('4/6')} &gt; ${nh('3/6')}.`;
+  if (id === 'D') return '<b>Merke:</b> Komma unter Komma, dann von links nach rechts vergleichen. Die erste Stelle mit verschiedenen Ziffern entscheidet: 0,3 &gt; 0,29. Nullen am Ende ändern nichts. Brüche wandelt man vorher in Dezimalbrüche um: 3/4 = 0,75 &lt; 0,8.';
   return '<b>Merke:</b> Jede rationale Zahl hat eine Gegenzahl mit demselben Betrag. Links ist kleiner, auch bei negativen Zahlen. ℕ ⊂ ℤ ⊂ ℚ.';
 }
 summary.addEventListener('click', e => {
-  const sb = e.target.closest('[data-sol]');
-  if (sb){ const sol = summary.querySelector('.sol'); sol.hidden = !sol.hidden; sb.textContent = sol.hidden ? 'Lösung zum Vergleichen zeigen' : 'Lösung ausblenden'; return; }
   const b = e.target.closest('[data-go]'); if (!b) return;
   if (b.dataset.go) startUnit(b.dataset.go); else { renderHome(); show(home); }
 });
@@ -2104,6 +2859,8 @@ document.addEventListener('keydown', e => {
   if (pinD.open){ if (/^\d$/.test(e.key)) pinKey(e.key); else if (e.key === 'Backspace') pinKey('del'); else if (e.key === 'Enter'){ e.preventDefault(); pinKey('ok'); } return; }
   if (game.hidden || $('book').open || teacher.open || G.step !== 'calc' || e.ctrlKey || e.metaKey || e.altKey) return;
   if (/^\d$/.test(e.key)){ numKey(e.key); e.preventDefault(); }
+  else if (e.key === ',' || e.key === '.'){ numKey(','); e.preventDefault(); }
+  else if (e.key === '-'){ numKey('-'); e.preventDefault(); }
   else if (e.key === 'Backspace'){ numKey('del'); e.preventDefault(); }
   else if (e.key === 'Tab' || e.key === 'ArrowRight'){ numKey('next'); e.preventDefault(); }
   else if (e.key === 'Enter' && !mainBtn.disabled){ e.preventDefault(); mainBtn.click(); }
@@ -2145,8 +2902,28 @@ const BOOK = {
     <h3>Gegenzahl und Betrag</h3><p>${nh('3/4')} und ${nh('−3/4')} sind Gegenzahlen: Sie liegen gleich weit von 0 entfernt, auf verschiedenen Seiten. Diesen Abstand nennt man <b>Betrag</b>: |${nh('−3/4')}| = ${nh('3/4')}.</p>
     <h3>Anordnung</h3><p>Auch hier gilt: Links ist kleiner. Deshalb ist ${nh('−3/4')} &lt; ${nh('−1/2')}, obwohl ${nh('3/4')} &gt; ${nh('1/2')} ist.</p>
     <h3>Zahlenmengen</h3><p>Natürliche Zahlen ℕ: 1, 2, 3, … Ganze Zahlen ℤ: dazu 0 und −1, −2, … Rationale Zahlen ℚ: alle positiven und negativen Bruchzahlen und die 0. Es gilt ℕ ⊂ ℤ ⊂ ℚ.</p>${setsMini()}
-    <p>Achtung: ${nh('21/7')} = 3 ist eine natürliche Zahl, ${nh('−8/4')} = −2 eine ganze Zahl.</p>`
+    <p>Achtung: ${nh('21/7')} = 3 ist eine natürliche Zahl, ${nh('−8/4')} = −2 eine ganze Zahl.</p>`,
+  D: () => `<h3>Stellenwerttafel</h3><p>Nach dem Komma folgen Zehntel (z), Hundertstel (h), Tausendstel (t), … Beispiel: 0,238 = 2 z + 3 h + 8 t = ${nh('238/1000')}.</p>${pvtMini()}
+    <h3>Vergleichen: Komma unter Komma</h3><p>Schreibe die Zahlen Komma unter Komma. Vergleiche von links nach rechts, beginnend beim größten Stellenwert. Die <b>erste Stelle mit verschiedenen Ziffern entscheidet</b>: 0,238 &lt; 0,24, denn 3 Hundertstel sind weniger als 4 Hundertstel. Die Stellen danach musst du nicht mehr vergleichen.</p>
+    <h3>Mit der Lupe</h3><p>Vergrößert man den Abschnitt von 0,2 bis 0,3 zehnfach, sieht man die Hundertstel 0,21; 0,22; … Auch hier gilt: Weiter rechts ist größer.</p>${zoomMini()}
+    <h3>Vorsicht, Denkfallen!</h3><ul><li>Nicht wie natürliche Zahlen lesen: 0,3 &gt; 0,29, obwohl 29 &gt; 3 ist.</li><li>Mehr Stellen heißt nicht kleiner: 0,375 &gt; 0,25.</li><li>Eine Null nach dem Komma heißt nicht „ganz klein“: 0,03 &gt; 0,029.</li><li>Nullen am Ende ändern nichts: 0,5 = 0,50 = 0,500.</li></ul>
+    <h3>Negative Dezimalbrüche</h3><p>Sind beide Zahlen negativ, ist die Zahl mit dem kleineren Betrag größer: −0,57 &gt; −0,75, denn |−0,57| &lt; |−0,75|. Sie liegt näher an der 0.</p>
+    <h3>Bruch oder Dezimalbruch?</h3><p>Bringe den Nenner durch Erweitern oder Kürzen auf 10, 100 oder 1000: ${nh('3/4')} = ${nh('75/100')} = 0,75 &lt; 0,8. Umgekehrt: 0,35 = ${nh('35/100')} = ${nh('7/20')}. Nicht jeder Bruch wird ein endlicher Dezimalbruch: ${nh('1/3')} = 0,333… Dann vergleicht man besser als Brüche.</p>
+    <h3>Immer noch eine Zahl dazwischen</h3><p>Zwischen 0,24 und 0,25 liegen 0,241; 0,242; … und zwischen 0,246 und 0,247 wieder weitere. Zwischen zwei Zahlen liegen unendlich viele Zahlen.</p>`
 };
+function pvtMini(){
+  const rows = [['','0','2','3','8'], ['','0','2','4','']], head = ['Z','E','z','h','t'];
+  return `<table class="pvmini" aria-label="Stellenwerttafel mit 0,238 und 0,24"><thead><tr>${head.map((h, i) => `<th class="${i === 1 ? 'ce' : ''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((d, i) => `<td class="${i === 1 ? 'ce' : ''}${i === 3 ? ' on' : ''}">${d}${i === 1 ? '<b>,</b>' : ''}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+}
+function zoomMini(){
+  let s = ''; const x0 = 30, x1 = 490, sx = i => x0 + (x1 - x0) * i / 10;
+  s += '<line class="axis" x1="20" y1="30" x2="500" y2="30"/>'; for (let i = 0; i <= 10; i++) s += `<line class="tick" x1="${sx(i)}" y1="${i % 5 ? 24 : 21}" x2="${sx(i)}" y2="${i % 5 ? 36 : 39}"/>`;
+  s += `<rect x="${sx(2)}" y="22" width="${sx(1) - x0}" height="16" rx="3" fill="var(--hl1)" opacity=".8"/><text x="${x0}" y="14" text-anchor="middle">0</text><text x="${sx(2)}" y="14" text-anchor="middle">0,2</text><text x="${sx(3)}" y="14" text-anchor="middle">0,3</text><text x="${x1}" y="14" text-anchor="middle">1</text>`;
+  s += `<polygon points="${sx(2)},38 ${sx(3)},38 ${x1},92 ${x0},92" fill="var(--hl2)" opacity=".7"/>`;
+  s += '<line class="axis" x1="20" y1="104" x2="500" y2="104"/>'; for (let i = 0; i <= 10; i++) s += `<line class="tick" x1="${sx(i)}" y1="${i % 5 ? 98 : 95}" x2="${sx(i)}" y2="${i % 5 ? 110 : 113}"/>`;
+  s += `<text x="${x0}" y="134" text-anchor="middle">0,20</text><text x="${sx(5)}" y="134" text-anchor="middle">0,25</text><text x="${x1}" y="134" text-anchor="middle">0,30</text><circle class="dot" cx="${sx(9)}" cy="104" r="7"/><text class="t1" x="${sx(9)}" y="86" text-anchor="middle">0,29</text><circle class="dot" cx="${x1}" cy="104" r="7"/>`;
+  return `<svg class="mini" viewBox="0 0 520 142" role="img" aria-label="Zahlengerade von 0 bis 1, der Abschnitt von 0,2 bis 0,3 wird zehnfach vergrößert. 0,29 liegt kurz vor 0,3.">${s}</svg>`;
+}
 function renderBook(tab){ $('bookBody').innerHTML = BOOK[tab](); $('bookTabs').querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tab === tab)); }
 $('bookTabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) renderBook(b.dataset.tab); });
 function openBook(){ renderBook(G.u && !game.hidden ? G.u.T.id : 'Z'); openD(book); }
@@ -2158,6 +2935,7 @@ book.addEventListener('click', e => { if (e.target === book) closeD(book); });
 /* ================= Größe ================= */
 function onResize(){
   if (game.hidden || !G.t) return;
+  if (G.t.k === 'zoom' && G.zm && Math.abs(zst.clientWidth - G.zm.W) >= 1){ drawZoom(false); layoutZ(); return; }
   if ((G.t.k === 'line' || G.t.k === 'double') && Math.abs(stage.clientWidth - G.W) >= 1){ drawStage(false); layoutFlags(); }
 }
 window.addEventListener('resize', onResize);
@@ -2166,7 +2944,7 @@ if (window.ResizeObserver) new ResizeObserver(onResize).observe(stage);
 /* ================= Start ================= */
 (function(){ let s = ''; for (let i = 0; i <= 12; i++){ const x = 40 + i * 42.5, h = i % 4 === 0 ? 17 : 10; s += `<line class="tick" x1="${x}" y1="${126 - h}" x2="${x}" y2="${126 + h}"/>`; } $('heroTicks').innerHTML = s; })();
 loadDB(); renderHome();
-window.__pl = {G, DB: () => DB, TOPICS, UNITS, P, cmpOf, valOf, tickOf, minDiv, setOf, stratInfo};
+window.__pl = {G, DB: () => DB, TOPICS, UNITS, P, cmpOf, valOf, tickOf, minDiv, setOf, stratInfo, toDec, firstDiff, oddCands, digValid, scaledStr, midOf, zehner};
 })();
 </script>
 
